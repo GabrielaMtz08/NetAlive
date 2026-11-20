@@ -47,10 +47,9 @@
 
   <main>
 
-    <!-- 1. BANNER INTERNO -->
+    <!-- 1. BANNER INTERNO CON FONDO DE CONECTIVIDAD Y CÍRCULO INTERACTIVO -->
     <section class="inner-banner" aria-labelledby="banner-title">
-      <!-- Opcional: reemplaza la ruta por una imagen de fondo en assets/ -->
-      <div class="inner-banner-image" style="background-image: url('assets/banner-nosotros.jpg');"></div>
+      <div class="inner-banner-image" style="background-image: url('assets/conectividad.jpg');"></div>
 
       <div class="inner-banner-content">
         <span>SOBRE NOSOTROS</span>
@@ -61,7 +60,12 @@
         </p>
       </div>
 
-      <div class="banner-decoration" aria-hidden="true"></div>
+      <!-- Círculo respirando con imagen interactiva -->
+      <div class="banner-decoration" id="banner-emblem" role="button" tabindex="0" aria-label="Red y comunidad Net Alive">
+        <span class="pulse-ring ring-1" aria-hidden="true"></span>
+        <span class="pulse-ring ring-2" aria-hidden="true"></span>
+        <img src="assets/comunidad.png" alt="Comunidad y red conectada Net Alive" class="banner-emblem-img">
+      </div>
     </section>
 
     <!-- 2. DESCRIPCIÓN GENERAL (¿QUIÉNES SOMOS?) -->
@@ -71,6 +75,7 @@
       <div class="two-col about-layout">
         <div class="about-copy">
           <h2>Especialistas en <em>integración y desarrollo</em> tecnológico</h2>
+
           <p>
             Fuimos creados para integrar y desarrollar tecnología para <strong>Data Center</strong>,
             <strong>Contact Center</strong> y soluciones tecnológicas que mejoran la experiencia a clientes
