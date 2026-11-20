@@ -52,7 +52,7 @@ if (currentPage) {
 // Efectos de aparición al desplazarse.
 if ('IntersectionObserver' in window) {
   const observer = new IntersectionObserver(entries => entries.forEach(entry => {
-    if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry); }
   }), {threshold:.12});
   $$('.reveal').forEach(el => observer.observe(el));
 } else $$('.reveal').forEach(el => el.classList.add('visible'));
@@ -66,7 +66,7 @@ if (slides.length > 1 && !matchMedia('(prefers-reduced-motion: reduce)').matches
     slides[active].classList.remove('active');
     active = (active + 1) % slides.length;
     slides[active].classList.add('active');
-  }, 5200);
+  }, 3800);
 }
 
 // Ventanas modales: las tarjetas y botones abren contenido al tocarse.
