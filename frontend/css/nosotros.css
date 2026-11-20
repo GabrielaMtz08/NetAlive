@@ -1,9 +1,12 @@
 /* =========================================================
    ESTILOS ESPECÍFICOS DE LA PÁGINA "NOSOTROS" (nosotros.css)
+   Complementa a css/styles.css
    ========================================================= */
 
-/* 1. BANNER SUPERIOR ADAPTABLE A MODO CLARO Y OSCURO */
+/* 1. BANNER SUPERIOR ADAPTABLE E INTERACTIVO */
 .inner-banner {
+  justify-content: space-between;
+  gap: 48px;
   background: linear-gradient(120deg, #f4fbfb 0%, #e6f6f6 55%, #eef4fa 100%);
   color: var(--ink);
   border-bottom: 1px solid var(--line);
@@ -34,21 +37,101 @@
   color: var(--muted);
 }
 
-.inner-banner .banner-more {
-  color: var(--navy);
-  border-color: #cbdcde;
-  background: rgba(255, 255, 255, 0.8);
-}
-
-.inner-banner .banner-more:hover {
-  background: var(--teal);
-  border-color: var(--teal);
-  color: #fff;
-}
-
+/* Círculo que respira + imagen de comunidad */
 .banner-decoration {
-  border-color: rgba(8, 184, 183, 0.35);
-  box-shadow: 0 0 0 35px rgba(8, 184, 183, 0.08), 0 0 0 75px rgba(8, 184, 183, 0.04);
+  position: relative;
+  right: auto;
+  bottom: auto;
+  flex-shrink: 0;
+  width: 280px;
+  height: 280px;
+  margin-right: 3vw;
+  border-radius: 50%;
+  border: 1.5px solid rgba(8, 184, 183, 0.45);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.92) 0%, rgba(234, 250, 250, 0.65) 100%);
+  box-shadow: 0 18px 45px rgba(16, 40, 75, 0.08), inset 0 0 28px rgba(8, 184, 183, 0.14);
+  display: grid;
+  place-items: center;
+  z-index: 2;
+  cursor: pointer;
+  user-select: none;
+  animation: float 6s ease-in-out infinite;
+  transition: transform 0.25s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+/* Anillos concéntricos con animación de respiración */
+.pulse-ring {
+  position: absolute;
+  inset: -24px;
+  border-radius: 50%;
+  border: 1px solid rgba(8, 184, 183, 0.35);
+  pointer-events: none;
+  animation: breatheRing 4.5s ease-in-out infinite;
+}
+
+.pulse-ring.ring-2 {
+  inset: -52px;
+  border-color: rgba(8, 184, 183, 0.18);
+  animation-delay: 1.4s;
+}
+
+/* Imagen comunidad.png adaptada a color azul marino en modo día */
+.banner-emblem-img {
+  width: 56%;
+  height: 56%;
+  object-fit: contain;
+  pointer-events: none;
+  filter: brightness(0) saturate(100%) invert(13%) sepia(36%) saturate(2258%) hue-rotate(192deg) brightness(93%) contrast(95%);
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+/* Interacción al pasar el cursor o hacer clic */
+.banner-decoration:hover,
+.banner-decoration:focus-visible {
+  border-color: var(--teal);
+  box-shadow: 0 22px 60px rgba(8, 184, 183, 0.24), inset 0 0 36px rgba(8, 184, 183, 0.25);
+  outline: none;
+}
+
+.banner-decoration:hover .banner-emblem-img {
+  transform: scale(1.08);
+  filter: brightness(0) saturate(100%) invert(41%) sepia(86%) saturate(476%) hue-rotate(138deg) brightness(92%) contrast(95%);
+}
+
+.banner-decoration:hover .pulse-ring {
+  border-color: rgba(8, 184, 183, 0.65);
+}
+
+.banner-decoration.is-pulsing::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--teal);
+  animation: clickRipple 0.75s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes breatheRing {
+  0%, 100% {
+    transform: scale(0.95);
+    opacity: 0.45;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
+
+@keyframes clickRipple {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
 }
 
 
@@ -448,20 +531,27 @@ body[data-theme="dark"] .inner-banner p {
   color: #d4e5ed;
 }
 
-body[data-theme="dark"] .inner-banner .banner-more {
-  background: transparent;
-  color: #fff;
-  border-color: #8bd9d6;
-}
-
-body[data-theme="dark"] .inner-banner .banner-more:hover {
-  background: #0bb6b4;
-  color: #06223a;
-}
-
 body[data-theme="dark"] .banner-decoration {
-  border-color: #25d1c7;
-  box-shadow: 0 0 0 35px #08b8b71c, 0 0 0 75px #08b8b710;
+  border-color: rgba(37, 209, 199, 0.55);
+  background: radial-gradient(circle, rgba(16, 40, 75, 0.85) 0%, rgba(7, 27, 49, 0.55) 100%);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.4), inset 0 0 32px rgba(8, 184, 183, 0.22);
+}
+
+body[data-theme="dark"] .pulse-ring {
+  border-color: rgba(98, 226, 219, 0.35);
+}
+
+body[data-theme="dark"] .pulse-ring.ring-2 {
+  border-color: rgba(98, 226, 219, 0.18);
+}
+
+/* En modo noche la imagen se vuelve blanco luminoso con destello cian */
+body[data-theme="dark"] .banner-emblem-img {
+  filter: brightness(0) invert(1) drop-shadow(0 0 12px rgba(98, 226, 219, 0.45));
+}
+
+body[data-theme="dark"] .banner-decoration:hover .banner-emblem-img {
+  filter: brightness(0) saturate(100%) invert(86%) sepia(26%) saturate(684%) hue-rotate(124deg) brightness(98%) contrast(94%) drop-shadow(0 0 16px rgba(98, 226, 219, 0.7));
 }
 
 body[data-theme="dark"] .section-alt {
@@ -552,6 +642,18 @@ body[data-theme="dark"] .cta-banner .banner-more:hover {
 }
 
 @media (max-width: 860px) {
+  .inner-banner {
+    flex-direction: column;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .banner-decoration {
+    width: 210px;
+    height: 210px;
+    margin: 24px auto 10px;
+  }
+
   .identity-grid {
     grid-template-columns: 1fr;
   }
