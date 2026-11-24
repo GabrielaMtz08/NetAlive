@@ -60,7 +60,7 @@
         </p>
         <div class="banner-actions">
           <a href="contacto.html" class="btn btn-primary">Conversemos <span aria-hidden="true">→</span></a>
-          <a href="#soluciones-resumen" class="banner-more">Conocer soluciones</a>
+          <a href="#certificaciones" class="banner-more">Ver certificaciones</a>
         </div>
       </div>
 
@@ -294,97 +294,83 @@
       </div>
     </section>
 
-    <!-- 6. NUESTRO PORTAFOLIO DE SOLUCIONES -->
-    <section id="soluciones-resumen" class="section">
-      <div class="eyebrow"><span></span>PORTAFOLIO INTEGRAL</div>
+    <!-- 6. CERTIFICACIONES Y HOMOLOGACIONES -->
+    <section id="certificaciones" class="section section-alt certification-section" aria-labelledby="certifications-title">
+      <div class="eyebrow"><span></span>RESPALDO Y CONFIANZA</div>
 
-      <div class="section-title-row">
+      <div class="section-title-row certification-heading">
         <div>
-          <h2>Nuestras <em>soluciones</em></h2>
+          <h2 id="certifications-title">Nuestras <em>certificaciones</em></h2>
         </div>
-        <a href="soluciones.html" class="btn btn-ghost">Ver todas las soluciones →</a>
+        <p>Experiencia, calidad y buenas prácticas respaldadas por certificaciones y homologaciones.</p>
       </div>
 
-      <div class="solutions-summary-grid">
-        <article class="solution-item">
-          <div class="solution-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="18" height="5" rx="1"></rect>
-              <rect x="3" y="10" width="18" height="5" rx="1"></rect>
-              <rect x="3" y="17" width="18" height="4" rx="1"></rect>
-              <line x1="7" y1="5.5" x2="7.01" y2="5.5"></line>
-              <line x1="7" y1="12.5" x2="7.01" y2="12.5"></line>
-              <line x1="7" y1="19" x2="7.01" y2="19"></line>
-            </svg>
-          </div>
-          <h3>Infraestructura &amp; TI</h3>
-          <p>Networking, ciberseguridad, cableado estructurado, Data Center, cómputo, CCTV y control de acceso.</p>
-        </article>
+      <div class="certification-carousel" data-certifications-carousel role="region" aria-label="Certificaciones y homologaciones de Net Alive">
+        <div class="certification-carousel__slides">
+          <article class="certification-slide" data-certification-slide aria-labelledby="certification-projects-title">
+            <div class="certification-slide__visual certification-slide__visual--three">
+              <img src="assets/certificaciones/PMP.webp" alt="Insignia PMP del Project Management Institute" loading="lazy" decoding="async">
+              <img src="assets/certificaciones/POPM.png" alt="Insignia SAFe Product Owner / Product Manager" loading="lazy" decoding="async">
+              <img src="assets/certificaciones/SFC-512.png" alt="Insignia Scrum Fundamentals Certified" loading="lazy" decoding="async">
+            </div>
+            <div class="certification-slide__content" tabindex="0">
+              <span class="certification-slide__eyebrow">01 / GESTIÓN DE PROYECTOS</span>
+              <h3 id="certification-projects-title">Metodologías ágiles y gestión de proyectos</h3>
+              <ul class="certification-list">
+                <li><strong>PMP®</strong><span>Project Management Institute</span></li>
+                <li><strong>SAFe® 5</strong><span>Product Owner / Product Manager</span></li>
+                <li><strong>SFC™</strong><span>Scrum Fundamentals Certified</span></li>
+              </ul>
+            </div>
+          </article>
 
-        <article class="solution-item">
-          <div class="solution-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 12h16"></path>
-              <path d="M5 8v8M19 8v8"></path>
-              <path d="m8 10 3 2-3 2M13 14l3-2-3-2"></path>
-              <circle cx="3" cy="12" r="1"></circle>
-              <circle cx="21" cy="12" r="1"></circle>
-            </svg>
-          </div>
-          <h3>Carrier &amp; Telecom</h3>
-          <p>Enlaces dedicados con alta disponibilidad, redes privadas, telefonía en la nube y Contact Center omnicanal.</p>
-        </article>
+          <article class="certification-slide" data-certification-slide aria-labelledby="certification-quality-title" hidden>
+            <div class="certification-slide__visual certification-slide__visual--stacked">
+              <img src="assets/certificaciones/ISO-9001.png" alt="Certificación ISO 9001:2015 de AENOR y ema, folio ER-0420/2026" loading="lazy" decoding="async">
+              <img src="assets/certificaciones/itil-v3-foundation.png" alt="Insignia ITIL Foundation V3" loading="lazy" decoding="async">
+            </div>
+            <div class="certification-slide__content" tabindex="0">
+              <span class="certification-slide__eyebrow">02 / CALIDAD Y GESTIÓN DE TI</span>
+              <h3 id="certification-quality-title">Gestión de TI y calidad</h3>
+              <ul class="certification-list">
+                <li><strong>ISO 9001:2015</strong><span>Certificada por AENOR / ema · Folio ER-0420/2026</span></li>
+                <li><strong>ITIL® v3</strong><span>Foundation · Gestión de servicios de TI</span></li>
+              </ul>
+            </div>
+          </article>
 
-        <article class="solution-item">
-          <div class="solution-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <ellipse cx="12" cy="5" rx="8" ry="3"></ellipse>
-              <path d="M4 5v5c0 1.66 3.58 3 8 3s8-1.34 8-3V5"></path>
-              <path d="M4 10v5c0 1.66 3.58 3 8 3s8-1.34 8-3v-5"></path>
-              <path d="M4 15v4c0 1.66 3.58 3 8 3s8-1.34 8-3v-4"></path>
-            </svg>
-          </div>
-          <h3>Virtualización</h3>
-          <p>Consolidación de servidores y gestión de entornos VMware, Hyper-V, Proxmox, Nutanix y Red Hat OpenShift.</p>
-        </article>
+          <article class="certification-slide" data-certification-slide aria-labelledby="certification-compliance-title" hidden>
+            <div class="certification-slide__visual certification-slide__visual--three">
+              <img src="assets/certificaciones/Achilles.png" alt="Distintivo Achilles Repro Accredited Silver Supplier" loading="lazy" decoding="async">
+              <img src="assets/certificaciones/Necsus.png" alt="Distintivo NECSUS: Negocios Éticos, Competitivos y Sustentables" loading="lazy" decoding="async">
+              <img src="assets/certificaciones/DUNS.png" alt="Distintivo D-U-N-S Registered de Dun &amp; Bradstreet" loading="lazy" decoding="async">
+            </div>
+            <div class="certification-slide__content" tabindex="0">
+              <span class="certification-slide__eyebrow">03 / CUMPLIMIENTO</span>
+              <h3 id="certification-compliance-title">Cumplimiento y homologación de proveedores</h3>
+              <ul class="certification-list">
+                <li><strong>Achilles Repro</strong><span>Comunidad de Proveedores</span></li>
+                <li><strong>NECSUS</strong><span>Negocios Éticos, Competitivos y Sustentables</span></li>
+                <li><strong>Número D-U-N-S: 95-159-8038</strong><span>Dun &amp; Bradstreet</span></li>
+              </ul>
+            </div>
+          </article>
+        </div>
 
-        <article class="solution-item">
-          <div class="solution-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 10h1.5a4.5 4.5 0 0 1 0 9H7a5 5 0 1 1 1.24-9.84A7 7 0 0 1 21 12"></path>
-              <path d="m12 3-3 3h2v5h2V6h2l-3-3Z"></path>
-            </svg>
+        <div class="certification-carousel__controls">
+          <button class="certification-carousel__arrow" type="button" data-certification-previous aria-label="Ver grupo anterior de certificaciones">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <div class="certification-carousel__pagination" role="group" aria-label="Seleccionar grupo de certificaciones">
+            <button type="button" data-certification-target="0" aria-label="Mostrar gestión de proyectos" aria-pressed="true"></button>
+            <button type="button" data-certification-target="1" aria-label="Mostrar calidad y gestión de TI" aria-pressed="false"></button>
+            <button type="button" data-certification-target="2" aria-label="Mostrar homologaciones" aria-pressed="false"></button>
           </div>
-          <h3>Rexha Cloud</h3>
-          <p>Plataforma cloud propia con servidores virtuales, escritorios remotos, respaldo, archivos y migraciones guiadas.</p>
-        </article>
-
-        <article class="solution-item">
-          <div class="solution-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <ellipse cx="12" cy="5" rx="7" ry="3"></ellipse>
-              <path d="M5 5v6c0 1.66 3.13 3 7 3"></path>
-              <path d="M19 5v4"></path>
-              <rect x="14" y="14" width="7" height="6" rx="1"></rect>
-              <path d="M16 17h3M17.5 15.5v3"></path>
-            </svg>
-          </div>
-          <h3>Data Management</h3>
-          <p>Automatización RPA, gobierno de datos, Data Lakehouse, Business Intelligence e inteligencia predictiva.</p>
-        </article>
-
-        <article class="solution-item">
-          <div class="solution-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="18" height="18" rx="3"></rect>
-              <circle cx="12" cy="12" r="5"></circle>
-              <circle cx="12" cy="12" r="1.5"></circle>
-              <path d="M12 3v4M12 17v4M3 12h4M17 12h4"></path>
-            </svg>
-          </div>
-          <h3>NOC</h3>
-          <p>Centro de Operaciones de Red con monitoreo 24/7, disponibilidad, ingeniería N1-N3 y atención bajo SLA.</p>
-        </article>
+          <button class="certification-carousel__arrow" type="button" data-certification-next aria-label="Ver siguiente grupo de certificaciones">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+          <p class="certification-carousel__status" aria-live="polite" aria-atomic="true">Grupo 1 de 3: Gestión de proyectos</p>
+        </div>
       </div>
     </section>
 
@@ -442,5 +428,6 @@
 
   <!-- Scripts -->
   <script src="js/app.js" defer></script>
+  <script src="js/nosotros.js" defer></script>
 </body>
 </html>
