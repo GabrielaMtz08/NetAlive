@@ -203,4 +203,3 @@ if (banner && emblem && !matchMedia('(prefers-reduced-motion: reduce)').matches)
     }
   });
 }
-// Hola
