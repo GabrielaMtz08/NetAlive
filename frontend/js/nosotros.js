@@ -33,4 +33,3 @@ document.addEventListener('DOMContentLoaded', () => {
     target.addEventListener('click', () => showSlide(index));
   });
 });
-// Hola
