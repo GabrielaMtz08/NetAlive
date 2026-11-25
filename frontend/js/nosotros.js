@@ -33,3 +33,54 @@ document.addEventListener('DOMContentLoaded', () => {
     target.addEventListener('click', () => showSlide(index));
   });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const showcase = document.querySelector('[data-values-showcase]');
+  if (!showcase) return;
+
+  const values = {
+    calidad: {
+      title: 'Calidad',
+      description: 'Entregamos soluciones confiables, documentadas y alineadas con estándares técnicos y comerciales.'
+    },
+    experiencia: {
+      title: 'Experiencia',
+      description: 'Aplicamos conocimiento especializado para resolver proyectos críticos con criterio y seguimiento.'
+    },
+    creatividad: {
+      title: 'Creatividad',
+      description: 'Diseñamos respuestas prácticas e innovadoras adaptadas a la realidad de cada organización.'
+    },
+    eficiencia: {
+      title: 'Eficiencia',
+      description: 'Optimizamos recursos, tiempos y procesos para generar resultados medibles y sostenibles.'
+    },
+    honestidad: {
+      title: 'Honestidad',
+      description: 'Construimos confianza mediante transparencia, comunicación clara y compromisos responsables.'
+    }
+  };
+
+  const nodes = Array.from(showcase.querySelectorAll('[data-value-target]'));
+  const title = showcase.querySelector('[data-value-title]');
+  const description = showcase.querySelector('[data-value-description]');
+  const icon = showcase.querySelector('[data-value-detail-icon]');
+
+  function selectValue(node) {
+    const value = values[node.dataset.valueTarget];
+    if (!value) return;
+
+    nodes.forEach((item) => {
+      const active = item === node;
+      item.classList.toggle('is-active', active);
+      item.setAttribute('aria-pressed', String(active));
+    });
+
+    title.textContent = value.title;
+    description.textContent = value.description;
+    icon.innerHTML = node.querySelector('.value-node__icon').innerHTML;
+  }
+
+  nodes.forEach((node) => node.addEventListener('click', () => selectValue(node)));
+  selectValue(nodes[0]);
+});
