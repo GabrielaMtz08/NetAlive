@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#08b8b7">
-  <meta name="description" content="NET ALIVE: tecnología, conectividad, ciberseguridad e innovación.">
-  <title>NET ALIVE</title>
+  <meta name="description" content="Conoce las alianzas tecnológicas de NET ALIVE en infraestructura, redes, nube, conectividad, energía y seguridad.">
+  <title>Alianzas tecnológicas | NET ALIVE</title>
   <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,10 +44,133 @@
       </button>
     </nav>
   </header>
-  <main>
+  <main class="alliances-page">
+    <!-- Sección: Hero de alianzas -->
+    <section class="alliances-hero" id="alianzas-inicio">
+      <div class="alliances-hero__grid" aria-hidden="true"></div>
+      <div class="alliances-hero__glow" aria-hidden="true"></div>
+      <div class="alliances-hero__content">
+        <div class="alliances-hero__copy">
+          <p class="alliances-eyebrow"><span></span> ECOSISTEMA TECNOLÓGICO</p>
+          <h1>Alianzas que convierten tecnología en <em>valor.</em></h1>
+          <p class="alliances-hero__description">
+            Integramos fabricantes líderes en infraestructura, conectividad,
+            nube y seguridad para construir soluciones alineadas a los objetivos
+            de cada organización.
+          </p>
+          <div class="alliances-hero__actions">
+            <a class="alliances-button alliances-button--primary" href="#ecosistema">
+              Explorar alianzas <span aria-hidden="true">↓</span>
+            </a>
+            <a class="alliances-button alliances-button--ghost" href="#contacto-alianzas">
+              Hablemos de tu proyecto
+            </a>
+          </div>
+          <div class="alliances-hero__proof" aria-label="Experiencia y operación">
+            <span><strong>10+</strong> años de experiencia</span>
+            <span><strong>24/7/365</strong> operación NOC</span>
+          </div>
+        </div>
 
-    <!-- Aqui va info -->
+        <div class="alliances-hero__visual" aria-hidden="true">
+          <div class="alliances-orbit alliances-orbit--outer"></div>
+          <div class="alliances-orbit alliances-orbit--inner"></div>
+          <div class="alliances-network-line alliances-network-line--one"></div>
+          <div class="alliances-network-line alliances-network-line--two"></div>
+          <div class="alliances-network-core">
+            <span class="alliances-network-core__symbol">NA</span>
+            <strong>NET ALIVE</strong>
+            <small>Algo más que tecnología</small>
+          </div>
+          <span class="alliances-network-node alliances-network-node--one">TI</span>
+          <span class="alliances-network-node alliances-network-node--two">CLOUD</span>
+          <span class="alliances-network-node alliances-network-node--three">SEC</span>
+          <span class="alliances-network-node alliances-network-node--four">DATA</span>
+          <span class="alliances-network-caption">PARTNERS · INTEGRACIÓN · VALOR</span>
+        </div>
+      </div>
+    </section>
 
+    <!-- Sección: Introducción al ecosistema -->
+    <section class="alliances-intro" aria-labelledby="alliances-intro-title">
+      <div class="alliances-intro__heading">
+        <p class="alliances-eyebrow"><span></span> TECNOLOGÍA CON PROPÓSITO</p>
+        <h2 id="alliances-intro-title">Un ecosistema para cada reto empresarial.</h2>
+      </div>
+      <p>
+        Explora las marcas que forman parte de nuestras soluciones. Filtra por
+        especialidad o busca un fabricante para descubrir cómo se relaciona con
+        las capacidades de NET ALIVE.
+      </p>
+    </section>
+
+    <!-- Sección: Explorador y mapa de alianzas -->
+    <section class="alliances-explorer" id="ecosistema" aria-labelledby="ecosystem-title">
+      <div class="alliances-section-heading">
+        <div>
+          <p class="alliances-eyebrow"><span></span> EXPLORADOR DE ALIANZAS</p>
+          <h2 id="ecosystem-title">Conecta cada necesidad con la tecnología adecuada.</h2>
+        </div>
+        <p class="alliances-section-heading__note">
+          Selecciona una categoría en el mapa o explora todas las marcas.
+        </p>
+      </div>
+
+      <div class="alliances-explorer__layout">
+        <aside class="ecosystem-map" aria-label="Mapa interactivo de alianzas">
+          <div class="ecosystem-map__heading">
+            <span class="ecosystem-map__status"><i></i> ECOSISTEMA ACTIVO</span>
+            <h3>Mapa de Alianzas</h3>
+            <p>Selecciona un nodo para filtrar las alianzas.</p>
+          </div>
+          <div class="ecosystem-map__core">
+            <span class="ecosystem-map__core-mark" aria-hidden="true">NA</span>
+            <span>NET ALIVE</span>
+            <small>Integración tecnológica</small>
+          </div>
+          <div class="ecosystem-map__nodes" id="category-map" role="group" aria-label="Categorías de alianzas"></div>
+        </aside>
+
+        <div class="alliance-results">
+          <div class="alliance-search">
+            <label for="alliance-search">Busca un fabricante</label>
+            <div class="alliance-search__field">
+              <span aria-hidden="true">⌕</span>
+              <input id="alliance-search" type="search" placeholder="Ej. Fortinet, Dell, nube..." autocomplete="off">
+            </div>
+          </div>
+
+          <div class="alliance-filters" id="alliance-filters" role="group" aria-label="Filtrar por categoría"></div>
+
+          <div class="alliance-results__meta">
+            <p id="alliance-result-count" role="status" aria-live="polite" aria-atomic="true"></p>
+            <button class="alliance-clear" id="alliance-clear" type="button">Limpiar filtros</button>
+          </div>
+
+          <div class="partner-grid" id="partner-grid"></div>
+          <p class="alliance-empty" id="alliance-empty" hidden>
+            No encontramos fabricantes con esos criterios. Prueba otra búsqueda o limpia los filtros.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección: Contacto comercial -->
+    <section class="alliances-contact" id="contacto-alianzas" aria-labelledby="alliances-contact-title">
+      <div class="alliances-contact__glow" aria-hidden="true"></div>
+      <div class="alliances-contact__copy">
+        <p class="alliances-eyebrow"><span></span> EL SIGUIENTE PASO</p>
+        <h2 id="alliances-contact-title">¿Listo para innovar?</h2>
+        <p>Conversemos sobre la tecnología y las alianzas que pueden impulsar tu próximo proyecto.</p>
+        <small>Para agilizar la atención, cuéntanos tu nombre, empresa, correo corporativo, teléfono y solución de interés.</small>
+      </div>
+      <div class="alliances-contact__actions">
+        <a class="alliances-button alliances-button--whatsapp" id="alliance-whatsapp" href="https://wa.me/525596676126" target="_blank" rel="noopener noreferrer">
+          Contactar por WhatsApp <span aria-hidden="true">↗</span>
+        </a>
+        <span>Luis Ángel González · Director Comercial</span>
+      </div>
+    </section>
   </main>
 
   <!-- PIE DE PÁGINA -->
@@ -101,5 +224,6 @@
 </footer>
   <!-- Scripts -->
   <script src="js/app.js" defer></script>
+  <script src="js/alianzas.js" defer></script>
 </body>
 </html>
