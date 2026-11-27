@@ -4,12 +4,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const $$ = (selector, parent = document) =>
     [...parent.querySelectorAll(selector)];
 
+  /* HELPER PARA ICONOS (FONT AWESOME O SÍMBOLO) */
+  const renderIcon = (icon) => {
+    if (!icon) return '';
+    if (icon.trim().startsWith('fa-')) {
+      return `<i class="${icon.trim()}" aria-hidden="true"></i>`;
+    }
+    return icon;
+  };
+
   /* DATOS DEL ECOSISTEMA */
   const solutions = [
     {
       id: 'infraestructura',
       number: '01',
-      icon: '⌘',
+      color: '#08b8b7',
+      lineColor: 'rgba(8, 184, 183, 0.28)',
+      glowColor: 'rgba(8, 184, 183, 0.14)',
+      icon: 'fa-solid fa-sitemap',
       title: 'Infraestructura & TI',
       subtitle: 'La base tecnológica de tu organización.',
       description:
@@ -23,37 +35,37 @@ document.addEventListener('DOMContentLoaded', () => {
       ],
       services: [
         {
-          icon: '⌁',
+          icon: 'fa-solid fa-network-wired',
           title: 'Networking',
           description:
             'Switches, routers, access points y telefonía IP para una conectividad empresarial eficiente.'
         },
         {
-          icon: '◈',
+          icon: 'fa-solid fa-shield-halved',
           title: 'Ciberseguridad',
           description:
             'Firewalls, antivirus, AntiSpam, WAF y Cloud Gateway para proteger redes y activos digitales.'
         },
         {
-          icon: '⌗',
+          icon: 'fa-solid fa-ethernet',
           title: 'Cableado estructurado',
           description:
             'Infraestructura UTP Cat 5e, Cat 6, Cat 6A, fibra óptica y tecnología GPON.'
         },
         {
-          icon: '▣',
+          icon: 'fa-solid fa-laptop',
           title: 'Cómputo empresarial',
           description:
             'Computadoras de escritorio, laptops y workstations para cada necesidad operativa.'
         },
         {
-          icon: '▤',
+          icon: 'fa-solid fa-server',
           title: 'Servidores y almacenamiento',
           description:
             'Servidores Torre, Rack y Blade, además de soluciones de almacenamiento NAS y SAN.'
         },
         {
-          icon: '◎',
+          icon: 'fa-solid fa-video',
           title: 'CCTV y control de acceso',
           description:
             'Videovigilancia con analíticos e IA, biométricos, gestión de asistencia y control de acceso.'
@@ -64,7 +76,10 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 'carrier',
       number: '02',
-      icon: '⌁',
+      color: '#2563eb',
+      lineColor: 'rgba(37, 99, 235, 0.28)',
+      glowColor: 'rgba(37, 99, 235, 0.14)',
+      icon: 'fa-solid fa-tower-broadcast',
       title: 'Carrier & Telecomunicaciones',
       subtitle: 'Conectividad que mantiene todo en movimiento.',
       description:
@@ -78,25 +93,25 @@ document.addEventListener('DOMContentLoaded', () => {
       ],
       services: [
         {
-          icon: '⌁',
+          icon: 'fa-solid fa-wifi',
           title: 'Internet dedicado empresarial',
           description:
             'Enlaces simétricos por fibra óptica, alta disponibilidad y SLA empresarial mediante Alestra.'
         },
         {
-          icon: '◎',
+          icon: 'fa-solid fa-diagram-project',
           title: 'Redes privadas multisucursal',
           description:
             'Interconexión segura entre sedes mediante MPLS, SD-WAN y enlaces punto a punto de baja latencia con Alestra.'
         },
         {
-          icon: '☎',
+          icon: 'fa-solid fa-phone-volume',
           title: 'Telefonía en la nube & UCaaS',
           description:
             'Cloud PBX, extensiones móviles, SIP Trunking e integración con Microsoft Teams y CRMs mediante Net2phone.'
         },
         {
-          icon: '◉',
+          icon: 'fa-solid fa-headset',
           title: 'Contact Center omnicanal',
           description:
             'Gestión centralizada de voz, WhatsApp empresarial, IVR inteligente y analítica de interacciones en tiempo real con Net2phone.'
@@ -107,7 +122,10 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 'virtualizacion',
       number: '03',
-      icon: '▦',
+      color: '#7c3aed',
+      lineColor: 'rgba(124, 58, 237, 0.28)',
+      glowColor: 'rgba(124, 58, 237, 0.14)',
+      icon: 'fa-solid fa-layer-group',
       title: 'Virtualización',
       subtitle: 'Infraestructura ágil y multi-plataforma.',
       description:
@@ -156,7 +174,10 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 'rexha',
       number: '04',
-      icon: '☁',
+      color: '#0ea5e9',
+      lineColor: 'rgba(14, 165, 233, 0.28)',
+      glowColor: 'rgba(14, 165, 233, 0.14)',
+      icon: 'fa-solid fa-cloud',
       title: 'Rexha Cloud',
       subtitle: 'Tu infraestructura, disponible desde cualquier lugar.',
       description:
@@ -171,37 +192,37 @@ document.addEventListener('DOMContentLoaded', () => {
       ],
       services: [
         {
-          icon: '▣',
+          icon: 'fa-solid fa-server',
           title: 'Servidores virtuales',
           description:
             'Máquinas virtuales Windows y Linux que despliegas, escalas y gestionas bajo demanda sobre nuestra infraestructura.'
         },
         {
-          icon: '▤',
+          icon: 'fa-solid fa-desktop',
           title: 'Escritorio remoto',
           description:
             'El escritorio y las aplicaciones de tu empresa en la nube, accesibles desde cualquier lugar con gestión centralizada.'
         },
         {
-          icon: '◈',
+          icon: 'fa-solid fa-rotate-left',
           title: 'Disaster Recovery',
           description:
             'Capa de continuidad operativa que replica tus entornos críticos y los mantiene listos para activación.'
         },
         {
-          icon: '↗',
+          icon: 'fa-solid fa-cloud-arrow-up',
           title: 'Migraciones guiadas',
           description:
             'Sube, convierte y despliega en Nube NET ALIVE tus máquinas virtuales y entornos actuales mediante un proceso asistido.'
         },
         {
-          icon: '▤',
+          icon: 'fa-solid fa-folder-open',
           title: 'Almacenamiento de archivos',
           description:
             'Servidor de archivos empresarial en la nube con permisos granulares por usuario, respaldos incluidos y cumplimiento normativo.'
         },
         {
-          icon: '◫',
+          icon: 'fa-solid fa-database',
           title: 'Almacenamiento de objetos',
           description:
             'Repositorio de alta capacidad compatible con S3 para copias de seguridad, datos de aplicaciones y grandes volúmenes.'
@@ -218,7 +239,10 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 'data',
       number: '05',
-      icon: '⌗',
+      color: '#f59e0b',
+      lineColor: 'rgba(245, 158, 11, 0.28)',
+      glowColor: 'rgba(245, 158, 11, 0.14)',
+      icon: 'fa-solid fa-database',
       title: 'Data Management',
       subtitle: 'Transformamos datos en decisiones estratégicas.',
       description:
@@ -233,37 +257,37 @@ document.addEventListener('DOMContentLoaded', () => {
       ],
       services: [
         {
-          icon: '⇣',
+          icon: 'fa-solid fa-robot',
           title: '01. Ingesta y automatización RPA',
           description:
             'Robots de software que extraen y descargan información de portales externos, incluyendo recibos, facturas y estados de cuenta.'
         },
         {
-          icon: '↻',
+          icon: 'fa-solid fa-arrows-rotate',
           title: 'Centralización automática',
           description:
             'Procesamiento de información sin intervención manual para agilizar operaciones, conciliaciones y pagos.'
         },
         {
-          icon: '▤',
+          icon: 'fa-solid fa-warehouse',
           title: '02. Arquitectura de datos',
           description:
             'Consolidación de información en arquitecturas Data Lakehouse y Data Warehouse con linaje y calidad.'
         },
         {
-          icon: '◈',
+          icon: 'fa-solid fa-file-shield',
           title: 'Gobierno de datos',
           description:
             'Marcos de gobierno de datos, seguridad, privacidad y cumplimiento normativo.'
         },
         {
-          icon: '▥',
+          icon: 'fa-solid fa-chart-column',
           title: '03. Analítica y Business Intelligence',
           description:
             'Dashboards ejecutivos en tiempo real para obtener visibilidad financiera y operativa.'
         },
         {
-          icon: '✧',
+          icon: 'fa-solid fa-wand-magic-sparkles',
           title: 'Inteligencia artificial',
           description:
             'Modelos predictivos e inteligencia artificial aplicada a la toma de decisiones.'
@@ -274,7 +298,10 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 'noc',
       number: '06',
-      icon: '◉',
+      color: '#10b981',
+      lineColor: 'rgba(16, 185, 129, 0.28)',
+      glowColor: 'rgba(16, 185, 129, 0.14)',
+      icon: 'fa-solid fa-desktop',
       title: 'Centro de Operaciones de Red',
       subtitle: 'Monitoreo, control y continuidad tecnológica.',
       description:
@@ -289,37 +316,37 @@ document.addEventListener('DOMContentLoaded', () => {
       ],
       services: [
         {
-          icon: '◉',
+          icon: 'fa-solid fa-eye',
           title: 'Monitoreo proactivo 24/7',
           description:
             'Supervisión continua de enlaces, routers, switches y servidores en tiempo real.'
         },
         {
-          icon: '⌁',
+          icon: 'fa-solid fa-wave-square',
           title: 'Disponibilidad y rendimiento',
           description:
             'Análisis de tráfico, latencia, ancho de banda y generación de alertas automatizadas.'
         },
         {
-          icon: '⌘',
+          icon: 'fa-solid fa-user-gear',
           title: 'Ingeniería especializada',
           description:
             'Equipo certificado para diagnóstico remoto, mantenimiento preventivo y gestión de cambios.'
         },
         {
-          icon: '↗',
+          icon: 'fa-solid fa-clock-rotate-left',
           title: 'Atención y resolución bajo SLA',
           description:
             'Escalamiento rápido, soporte en sitio y remoto, de acuerdo con los niveles de servicio contratados.'
         },
         {
-          icon: '▥',
+          icon: 'fa-solid fa-gauge-high',
           title: 'Operación continua',
           description:
             'Supervisión y seguimiento operativo 24/7/365.'
         },
         {
-          icon: '▤',
+          icon: 'fa-solid fa-file-lines',
           title: 'Reporteo ejecutivo',
           description:
             'Indicadores KPI, seguimiento de desempeño y reportes para la toma de decisiones.'
@@ -332,7 +359,6 @@ document.addEventListener('DOMContentLoaded', () => {
         'Reporteo ejecutivo: indicadores y seguimiento de KPIs.'
       ]
     }
-
   ];
 
   /* REFERENCIAS DEL DOM */
@@ -371,29 +397,28 @@ document.addEventListener('DOMContentLoaded', () => {
   function buildConnections() {
     if (!connectionGroup) return;
     connectionGroup.innerHTML = '';
-    nodes.forEach((node,index) => {
+    nodes.forEach((node, index) => {
       const x = parseFloat(node.style.getPropertyValue('--node-x'));
       const y = parseFloat(node.style.getPropertyValue('--node-y'));
       const line = document.createElementNS(
         'http://www.w3.org/2000/svg',
         'line'
       );
-      line.setAttribute('x1','300');
-      line.setAttribute('y1','300');
-      line.setAttribute('x2',String(x * 6));
-      line.setAttribute('y2',String(y * 6));
-      line.setAttribute('class','na-connection');
+      line.setAttribute('x1', '300');
+      line.setAttribute('y1', '300');
+      line.setAttribute('x2', String(x * 6));
+      line.setAttribute('y2', String(y * 6));
+      line.setAttribute('class', 'na-connection');
       line.dataset.index = index;
       connectionGroup.appendChild(line);
     });
   }
 
-  function activateConnection(index) {
-    $$('.na-connection',connectionGroup || document).forEach(line => {
-      line.classList.toggle(
-        'active',
-        Number(line.dataset.index) === index
-      );
+  function activateConnection(index, color = '#08b8b7') {
+    $$('.na-connection', connectionGroup || document).forEach(line => {
+      const isActive = Number(line.dataset.index) === index;
+      line.classList.toggle('active', isActive);
+      line.style.stroke = isActive ? color : 'url(#na-line-gradient)';
     });
   }
 
@@ -403,7 +428,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const solution = solutions[index];
     if (!solution || !info) return;
     info.innerHTML = `
-      <div class="na-info-icon">${solution.icon}</div>
+      <div class="na-info-icon">${renderIcon(solution.icon)}</div>
       <h3>
         ${solution.title}
         <span>${solution.subtitle}</span>
@@ -428,7 +453,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `${solution.number} / 06`;
     }
     if (coreSymbol) {
-      coreSymbol.textContent = solution.icon;
+      coreSymbol.innerHTML = renderIcon(solution.icon);
     }
     if (coreTitle) {
       coreTitle.textContent = solution.id.toUpperCase();
@@ -443,15 +468,35 @@ document.addEventListener('DOMContentLoaded', () => {
   function selectSolution(index) {
     if (!solutions[index]) return;
     selectedSolution = index;
-    nodes.forEach((node,i) => {
+    const solution = solutions[index];
+
+    const controlSection = $('#na-control');
+    const servicesSection = $('#na-services');
+
+    [controlSection, servicesSection].forEach(section => {
+      if (section) {
+        section.style.setProperty('--na-accent', solution.color);
+        section.style.setProperty('--na-line', solution.lineColor);
+        section.style.setProperty('--na-glow', solution.glowColor);
+      }
+    });
+
+    const gradStops = $$('#na-line-gradient stop');
+    if (gradStops.length >= 3) {
+      gradStops[0].setAttribute('stop-color', solution.color);
+      gradStops[1].setAttribute('stop-color', solution.color);
+      gradStops[2].setAttribute('stop-color', solution.color);
+    }
+
+    nodes.forEach((node, i) => {
       const active = i === index;
-      node.classList.toggle('active',active);
+      node.classList.toggle('active', active);
       node.setAttribute(
         'aria-pressed',
         String(active)
       );
     });
-    activateConnection(index);
+    activateConnection(index, solution.color);
     renderSolution(index);
     renderServices(index);
   }
@@ -475,13 +520,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const solution = solutions[solutionIndex];
     if (!serviceTrack) return;
     serviceIndex = 0;
-    serviceTrack.innerHTML = solution.services.map((service,index) => `
+    serviceTrack.innerHTML = solution.services.map((service) => `
       <article class="na-service-card">
-        <span class="na-service-number">
-          ${solution.number} / ${String(index+1).padStart(2,'0')}
-        </span>
         <div class="na-service-icon">
-          ${service.icon}
+          ${renderIcon(service.icon)}
         </div>
         <h3>${service.title}</h3>
         <p>${service.description}</p>
@@ -491,14 +533,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   function updateServices() {
     if (!serviceTrack || !serviceTrack.children.length) return;
-    const cards = $$('.na-service-card',serviceTrack);
+    const cards = $$('.na-service-card', serviceTrack);
     const visible = visibleServices();
     const maxIndex = Math.max(
       0,
       cards.length - visible
     );
     serviceIndex = Math.min(
-      Math.max(0,serviceIndex),
+      Math.max(0, serviceIndex),
       maxIndex
     );
     const width = cards[0].getBoundingClientRect().width;
@@ -509,10 +551,10 @@ document.addEventListener('DOMContentLoaded', () => {
       `translateX(-${serviceIndex * (width + gap)}px)`;
     if (serviceCounter) {
       serviceCounter.textContent =
-        `${String(serviceIndex+1).padStart(2,'0')} / ${String(cards.length).padStart(2,'0')}`;
+        `${String(serviceIndex + 1).padStart(2, '0')} / ${String(cards.length).padStart(2, '0')}`;
     }
     if (serviceProgress) {
-      const percentage = ((serviceIndex+1)/cards.length)*100;
+      const percentage = ((serviceIndex + 1) / cards.length) * 100;
       serviceProgress.style.width = `${percentage}%`;
     }
     const prevButton = $('#na-service-prev');
@@ -526,25 +568,25 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* CONTROLES DEL CARRUSEL */
-  $('#na-service-prev')?.addEventListener('click',() => {
+  $('#na-service-prev')?.addEventListener('click', () => {
     serviceIndex--;
     updateServices();
   });
-  $('#na-service-next')?.addEventListener('click',() => {
+  $('#na-service-next')?.addEventListener('click', () => {
     serviceIndex++;
     updateServices();
   });
 
   /* ARRASTRE CON RATÓN Y TÁCTIL */
   if (viewport) {
-    viewport.addEventListener('pointerdown',event => {
+    viewport.addEventListener('pointerdown', event => {
       if (event.pointerType === 'mouse' && event.button !== 0) return;
       pointerStart = event.clientX;
       pointerLast = event.clientX;
       pointerActive = true;
       viewport.classList.add('dragging');
     });
-    viewport.addEventListener('pointermove',event => {
+    viewport.addEventListener('pointermove', event => {
       if (!pointerActive) return;
       pointerLast = event.clientX;
     });
@@ -553,20 +595,20 @@ document.addEventListener('DOMContentLoaded', () => {
       const distance = pointerStart - pointerLast;
       if (Math.abs(distance) > 40) {
         const visible = visibleServices();
-        const cards = $$('.na-service-card',serviceTrack);
+        const cards = $$('.na-service-card', serviceTrack);
         const maxIndex = Math.max(
           0,
-          cards.length-visible
+          cards.length - visible
         );
         if (distance > 0) {
           serviceIndex = Math.min(
             maxIndex,
-            serviceIndex+1
+            serviceIndex + 1
           );
         } else {
           serviceIndex = Math.max(
             0,
-            serviceIndex-1
+            serviceIndex - 1
           );
         }
         updateServices();
@@ -574,9 +616,9 @@ document.addEventListener('DOMContentLoaded', () => {
       pointerActive = false;
       viewport.classList.remove('dragging');
     }
-    viewport.addEventListener('pointerup',finishDrag);
-    viewport.addEventListener('pointercancel',finishDrag);
-    viewport.addEventListener('lostpointercapture',finishDrag);
+    viewport.addEventListener('pointerup', finishDrag);
+    viewport.addEventListener('pointercancel', finishDrag);
+    viewport.addEventListener('lostpointercapture', finishDrag);
   }
 
   /* ANIMACIÓN DE MOVIMIENTO DEL HERO */
@@ -586,7 +628,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const motionEnabled =
       !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (motionEnabled) {
-      hero.addEventListener('pointermove',event => {
+      hero.addEventListener('pointermove', event => {
         if (event.pointerType === 'touch') return;
         const rect = hero.getBoundingClientRect();
         const x = (event.clientX - rect.left) / rect.width;
@@ -596,7 +638,7 @@ document.addEventListener('DOMContentLoaded', () => {
         heroVisual.style.transform =
           `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
       });
-      hero.addEventListener('pointerleave',() => {
+      hero.addEventListener('pointerleave', () => {
         heroVisual.style.transform =
           'perspective(1000px) rotateX(0) rotateY(0)';
       });
@@ -605,11 +647,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* CAMBIOS DE TAMAÑO */
   let resizeTimer;
-  window.addEventListener('resize',() => {
+  window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
       updateServices();
-    },150);
+    }, 150);
   });
 
   /* INICIALIZACIÓN */
@@ -617,17 +659,17 @@ document.addEventListener('DOMContentLoaded', () => {
   selectSolution(0);
   updateServices();
 
-  nodes.forEach((node,index) => {
-    node.addEventListener('keydown',event => {
+  nodes.forEach((node, index) => {
+    node.addEventListener('keydown', event => {
       let nextIndex = index;
       if (event.key === 'ArrowRight' ||
           event.key === 'ArrowDown') {
-        nextIndex = (index+1)%nodes.length;
+        nextIndex = (index + 1) % nodes.length;
       } else if (
         event.key === 'ArrowLeft' ||
         event.key === 'ArrowUp'
       ) {
-        nextIndex = (index-1+nodes.length)%nodes.length;
+        nextIndex = (index - 1 + nodes.length) % nodes.length;
       } else {
         return;
       }
@@ -636,6 +678,4 @@ document.addEventListener('DOMContentLoaded', () => {
       selectSolution(nextIndex);
     });
   });
-
 });
-
