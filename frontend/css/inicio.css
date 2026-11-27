@@ -404,7 +404,7 @@ body[data-theme="light"] .hero-content p {
     top: auto;
     bottom: 0;
     transform: none;
-    opacity: 0.45;
+    opacity: 1;
   }
 
   .core-card {
@@ -1321,3 +1321,27 @@ body.holo-modal-open {
   }
 
 }
+
+.hero {
+  align-items: flex-start;
+}
+
+.hero-content {
+  align-self: flex-start;
+  margin-top: 0;
+}
+
+.hero-content .eyebrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.hero-content .eyebrow span {
+  display: none;
+}
+

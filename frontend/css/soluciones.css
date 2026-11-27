@@ -67,10 +67,10 @@ body[data-theme="dark"] .na-solutions {
 }
 
 /* HERO */
-.na-hero {
+ .na-hero {
   position: relative;
   min-height: 690px;
-  padding: 95px 7% 85px;
+  padding: 45px 7% 85px;
   display: flex;
   align-items: center;
   isolation: isolate;
@@ -1456,10 +1456,12 @@ body[data-theme="dark"] .na-solutions {
 
 @media(max-width:760px) {
 
+  @media(max-width:760px) {
   .na-hero {
-    padding: 75px 6% 80px;
+    padding: 25px 6% 80px;
     min-height: auto;
   }
+}
 
   .na-hero-content {
     grid-template-columns: 1fr;
@@ -1726,4 +1728,284 @@ body[data-theme="dark"] .na-solutions {
     animation: none;
   }
 
+}
+/* ===== FONDO TEMÁTICO DEL HERO ===== */
+.na-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Circuitos */
+.na-hero-circuit {
+  position: absolute;
+  inset: 0;
+  opacity: .55;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160' fill='none' stroke='%2308b8b7' stroke-width='1.2' stroke-opacity='.5'><path d='M0 40h50l20 20h40M60 160v-50l20-20h80M100 0v30l20 20h40M0 120h30l15-15'/><circle cx='50' cy='40' r='3'/><circle cx='110' cy='60' r='3'/><circle cx='80' cy='90' r='3'/><circle cx='120' cy='50' r='3'/><circle cx='45' cy='105' r='3'/></svg>");
+  background-size: 160px;
+  -webkit-mask-image: radial-gradient(ellipse at 78% 50%, black 0%, transparent 72%);
+          mask-image: radial-gradient(ellipse at 78% 50%, black 0%, transparent 72%);
+  animation: naCircuitDrift 40s linear infinite;
+}
+@keyframes naCircuitDrift {
+  to { background-position: 160px 160px; }
+}
+
+/* Rayos de luz saliendo del foco */
+.na-hero-rays {
+  position: absolute;
+  width: 900px;
+  height: 900px;
+  right: -140px;
+  top: 50%;
+  margin-top: -450px;
+  border-radius: 50%;
+  background: repeating-conic-gradient(
+    from 0deg,
+    rgba(0, 220, 232, 0.475) 0deg 4deg,
+    transparent 4deg 18deg
+  );
+  -webkit-mask-image: radial-gradient(circle, black 0%, transparent 62%);
+          mask-image: radial-gradient(circle, black 0%, transparent 62%);
+  animation: naRaysSpin 60s linear infinite;
+}
+@keyframes naRaysSpin { to { transform: rotate(360deg); } }
+
+/* Resplandor de la bombilla */
+.na-hero-bulb {
+  position: absolute;
+  width: 620px;
+  height: 620px;
+  right: -20px;
+  top: 50%;
+  margin-top: -310px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(0, 220, 232, 0.4) 0%,
+    rgba(8,184,183,.14) 40%,
+    transparent 70%);
+  animation: naBulbPulse 4s ease-in-out infinite;
+}
+@keyframes naBulbPulse {
+  0%,100% { transform: scale(.92); opacity: .7; }
+  50%     { transform: scale(1.08); opacity: 1; }
+}
+
+/* Engranes de fondo */
+.na-bg-gear {
+  position: absolute;
+  fill: none;
+  stroke: var(--na-accent);
+  opacity: .16;
+}
+.gear-a {
+  width: 340px; height: 340px;
+  left: -90px; bottom: -80px;
+  animation: naRaysSpin 50s linear infinite;
+}
+.gear-b {
+  width: 220px; height: 220px;
+  left: 190px; bottom: -40px;
+  animation: naRaysSpin 34s linear infinite reverse;
+}
+
+/* Modo noche: más luz */
+body[data-theme="dark"] .na-hero-bulb {
+  background: radial-gradient(circle,
+    rgba(0,220,232,.38) 0%,
+    rgba(8,184,183,.18) 40%,
+    transparent 70%);
+}
+body[data-theme="dark"] .na-hero-circuit { opacity: .8; }
+
+/* Mantener las palabras siempre visibles */
+.na-hero-bottom {
+  z-index: 6;
+  background: linear-gradient(to top, var(--na-bg) 30%, transparent);
+}
+
+@media(max-width:760px) {
+  .na-hero-rays  { width: 600px; height: 600px; margin-top: -300px; right: -200px; }
+  .na-hero-bulb  { width: 420px; height: 420px; margin-top: -210px; right: -80px; }
+  .gear-a { width: 220px; height: 220px; }
+  .gear-b { display: none; }
+}
+
+/*  */
+/* ===== ICONO HERO: color día / noche ===== */
+.na-solutions {
+  /* modo día */
+  --na-icon-from: #000000;
+  --na-icon-to:   #0a6ea8;
+  --na-icon-glow: rgba(8,184,183,.35);
+}
+
+body[data-theme="dark"] .na-solutions {
+  /* modo noche */
+  --na-icon-from: #ffffff;
+  --na-icon-to:   #8aedff;
+  --na-icon-glow: rgba(0,220,232,.55);
+}
+
+.na-icon-stage {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 440px;
+}
+
+.na-icon-float {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  animation: naImageFloat 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 28px var(--na-icon-glow));
+}
+
+/* La imagen original queda invisible (solo para accesibilidad/SEO) */
+.na-icon-float .na-icon-base {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  animation: none;   
+  filter: none;
+}
+
+/* Capa de color recortada con la silueta del PNG */
+.na-icon-fill {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--na-icon-from), var(--na-icon-to));
+  -webkit-mask: url("../assets/solucion.png") center / contain no-repeat;
+          mask: url("../assets/solucion.png") center / contain no-repeat;
+  transition: background .35s;
+}
+
+@media (max-width: 760px) { .na-icon-stage { height: 320px; } }
+@media (max-width: 430px) { .na-icon-stage { height: 265px; } }
+
+/* ANIMACIÓN DE ENTRADA */
+@keyframes naHeroTitleEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(28px);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.na-hero-copy h1 {
+  opacity: 0;
+  animation: naHeroTitleEnter 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+}
+
+.na-hero-copy h1 span {
+  opacity: 0;
+  animation: naHeroTitleEnter 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.32s forwards;
+}
+
+.na-hero-copy > p {
+  opacity: 0;
+  animation: naHeroTitleEnter 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.52s forwards;
+}
+
+.na-tech-item span {
+  display: none;
+}
+
+.na-tech-item {
+  min-width: 220px;
+  min-height: 92px;
+  padding: 18px 26px;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  gap: 0;
+}
+
+/* VMware */
+.na-tech-item[data-brand="vmware"] {
+  color: #607078;
+  border-color: rgba(96, 112, 120, 0.35);
+}
+body[data-theme="dark"] .na-tech-item[data-brand="vmware"] {
+  color: #9bb0ba;
+  border-color: rgba(155, 176, 186, 0.35);
+}
+
+/* Microsoft */
+.na-tech-item[data-brand="microsoft"] {
+  color: #00a4ef;
+  border-color: rgba(0, 164, 239, 0.35);
+}
+
+/* Proxmox */
+.na-tech-item[data-brand="proxmox"] {
+  color: #e57000;
+  border-color: rgba(229, 112, 0, 0.35);
+}
+
+/* Nutanix */
+.na-tech-item[data-brand="nutanix"] {
+  color: #024da1;
+  border-color: rgba(2, 77, 161, 0.35);
+}
+body[data-theme="dark"] .na-tech-item[data-brand="nutanix"] {
+  color: #4d94ff;
+  border-color: rgba(77, 148, 255, 0.35);
+}
+
+/* Red Hat */
+.na-tech-item[data-brand="redhat"] {
+  color: #ee0000;
+  border-color: rgba(238, 0, 0, 0.35);
+}
+
+/* Alestra */
+.na-tech-item[data-brand="alestra"] {
+  color: #0072ce;
+  border-color: rgba(0, 114, 206, 0.35);
+}
+body[data-theme="dark"] .na-tech-item[data-brand="alestra"] {
+  color: #38a3ff;
+  border-color: rgba(56, 163, 255, 0.35);
+}
+
+/* Net2phone */
+.na-tech-item[data-brand="net2phone"] {
+  color: #00b140;
+  border-color: rgba(0, 177, 64, 0.35);
+}
+body[data-theme="dark"] .na-tech-item[data-brand="net2phone"] {
+  color: #2ce66b;
+  border-color: rgba(44, 230, 107, 0.35);
+}
+
+/* Artificial Intelligence */
+.na-tech-item[data-brand="ai"] {
+  color: #7c3aed;
+  border-color: rgba(124, 58, 237, 0.35);
+}
+body[data-theme="dark"] .na-tech-item[data-brand="ai"] {
+  color: #a78bfa;
+  border-color: rgba(167, 139, 250, 0.35);
+}
+
+@media (max-width: 760px) {
+  .na-tech-item {
+    min-width: 190px;
+    min-height: 80px;
+    padding: 14px 20px;
+    font-size: 17px;
+  }
 }

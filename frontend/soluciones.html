@@ -32,7 +32,7 @@
       <a href="index.html" data-page="inicio">Inicio</a>
       <a href="nosotros.html" data-page="nosotros">Nosotros</a>
       <a href="soluciones.html" data-page="soluciones">Soluciones</a>
-      <a href="fabrica-ia.html" data-page="fabrica">Fábrica SW / IA</a>
+      <a href="soporte.html" data-page="soporte">Soporte</a>
       <a href="sectores.html" data-page="sectores">Sectores</a>
       <a href="alianzas.html" data-page="alianzas">Alianzas</a>
       <a class="nav-contact" href="contacto.html" data-page="contacto">Contacto</a>
@@ -49,13 +49,37 @@
 <main class="na-solutions">
 
   <!-- HERO HOLOGRÁFICO -->
+    <!-- HERO HOLOGRÁFICO -->
   <section class="na-hero" id="inicio-soluciones">
+
+    <!-- Capas de fondo -->
     <div class="na-hero-grid"></div>
     <div class="na-hero-glow"></div>
     <div class="na-particles" id="na-particles"></div>
-    <div class="na-hero-content">
-      <div class="na-hero-copy">
 
+    <!-- Fondo temático (circuitos, rayos, engranes) -->
+    <div class="na-hero-bg" aria-hidden="true">
+      <div class="na-hero-circuit"></div>
+      <div class="na-hero-rays"></div>
+      <div class="na-hero-bulb"></div>
+
+      <svg class="na-bg-gear gear-a" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="82" stroke-width="22" stroke-dasharray="13.5 13.5"/>
+        <circle cx="100" cy="100" r="68" stroke-width="5"/>
+        <circle cx="100" cy="100" r="26" stroke-width="5"/>
+      </svg>
+      <svg class="na-bg-gear gear-b" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="82" stroke-width="22" stroke-dasharray="13.5 13.5"/>
+        <circle cx="100" cy="100" r="68" stroke-width="5"/>
+        <circle cx="100" cy="100" r="26" stroke-width="5"/>
+      </svg>
+    </div>
+
+    <!-- Contenido -->
+    <div class="na-hero-content">
+
+      <!-- Texto -->
+      <div class="na-hero-copy">
         <h1>
           El futuro de tu empresa
           <span>se conecta aquí.</span>
@@ -69,17 +93,36 @@
         </p>
       </div>
 
-      <div class="na-hero-visual">
+      <!-- Visual con icono animado -->
+      <div class="na-hero-visual" id="na-hero-visual">
         <div class="na-hero-orbit na-orbit-1"></div>
         <div class="na-hero-orbit na-orbit-2"></div>
         <div class="na-hero-orbit na-orbit-3"></div>
         <div class="na-hero-image-glow"></div>
-        <img src="assets/solucion.png" alt="Ecosistema de soluciones tecnológicas NET ALIVE">
+
+        <!-- Anillos de pulso -->
+        <span class="na-pulse-ring"></span>
+        <span class="na-pulse-ring delay"></span>
+
+        <!-- Icono con degradado -->
+        <div class="na-icon-stage" id="na-icon-stage">
+          <div class="na-icon-float">
+            <img class="na-icon-base" src="assets/solucion.png" alt="Ecosistema de soluciones tecnológicas NET ALIVE">
+            <div class="na-icon-fill" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <!-- Partículas orbitando -->
+        <span class="na-spin spin-1"><i></i></span>
+        <span class="na-spin spin-2"><i></i></span>
+        <span class="na-spin spin-3"><i></i></span>
+
         <div class="na-crosshair na-crosshair-1"></div>
         <div class="na-crosshair na-crosshair-2"></div>
       </div>
     </div>
 
+    <!-- Palabras inferiores (sin cambios) -->
     <div class="na-hero-bottom">
       <span>INFRASTRUCTURE</span>
       <span>CONNECTIVITY</span>
@@ -277,64 +320,64 @@
       </p>
     </div>
 
-    <div class="na-tech-marquee">
+ <div class="na-tech-marquee">
       <div class="na-tech-track">
-        <div class="na-tech-item">
+        <div class="na-tech-item" data-brand="vmware">
           <span>V</span>
           VMware
         </div>
-        <div class="na-tech-item">
+        <div class="na-tech-item" data-brand="microsoft">
           <span>M</span>
           Microsoft
         </div>
-        <div class="na-tech-item">
+        <div class="na-tech-item" data-brand="proxmox">
           <span>P</span>
           Proxmox
         </div>
-        <div class="na-tech-item">
+        <div class="na-tech-item" data-brand="nutanix">
           <span>N</span>
           Nutanix
         </div>
-        <div class="na-tech-item">
+        <div class="na-tech-item" data-brand="redhat">
           <span>R</span>
           Red Hat
         </div>
-        <div class="na-tech-item">
+        <div class="na-tech-item" data-brand="alestra">
           <span>A</span>
           Alestra
         </div>
-        <div class="na-tech-item">
+        <div class="na-tech-item" data-brand="net2phone">
           <span>N2</span>
           Net2phone
         </div>
-        <div class="na-tech-item">
+        <div class="na-tech-item" data-brand="ai">
           <span>AI</span>
           Artificial Intelligence
         </div>
 
         <!-- Repetición para continuidad del carrusel -->
-        <div class="na-tech-item" aria-hidden="true">
+        <div class="na-tech-item" data-brand="vmware" aria-hidden="true">
           <span>V</span> VMware
         </div>
-        <div class="na-tech-item" aria-hidden="true">
+        <div class="na-tech-item" data-brand="microsoft" aria-hidden="true">
           <span>M</span> Microsoft
         </div>
-        <div class="na-tech-item" aria-hidden="true">
+        <div class="na-tech-item" data-brand="proxmox" aria-hidden="true">
           <span>P</span> Proxmox
         </div>
-        <div class="na-tech-item" aria-hidden="true">
+        <div class="na-tech-item" data-brand="nutanix" aria-hidden="true">
           <span>N</span> Nutanix
         </div>
-        <div class="na-tech-item" aria-hidden="true">
+        <div class="na-tech-item" data-brand="redhat" aria-hidden="true">
           <span>R</span> Red Hat
         </div>
-        <div class="na-tech-item" aria-hidden="true">
+        <div class="na-tech-item" data-brand="alestra" aria-hidden="true">
           <span>A</span> Alestra
         </div>
-        <div class="na-tech-item" aria-hidden="true">
+        <div class="na-tech-item" data-brand="net2phone" aria-hidden="true">
           <span>N2</span> Net2phone
         </div>
-        <div class="na-tech-item" aria-hidden="true">
+        <div class="na-tech-item" data-brand="ai" aria-hidden="true">
           <span>AI</span> Artificial Intelligence
         </div>
       </div>

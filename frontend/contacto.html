@@ -32,7 +32,7 @@
       <a href="index.html" data-page="inicio">Inicio</a>
       <a href="nosotros.html" data-page="nosotros">Nosotros</a>
       <a href="soluciones.html" data-page="soluciones">Soluciones</a>
-      <a href="fabrica-ia.html" data-page="fabrica">Fábrica SW / IA</a>
+      <a href="soporte.html" data-page="soporte">Soporte</a>
       <a href="sectores.html" data-page="sectores">Sectores</a>
       <a href="alianzas.html" data-page="alianzas">Alianzas</a>
       <a class="nav-contact" href="contacto.html" data-page="contacto">Contacto</a>
@@ -44,12 +44,32 @@
       </button>
     </nav>
   </header>
-  <main>
-
-    <!-- Aqui va info -->
-
-  </main>
-
+ <main>
+  <section class="contact-landing">
+    <div class="contact-landing-copy">
+      <span class="section-kicker">CONTACTO</span>
+      <h1>Estamos aquí para <em>escucharte.</em></h1>
+      <p>Cuéntale al asistente qué necesitas. Te orientará sobre nuestros servicios y te ayudará a canalizar tu solicitud con el equipo de NET ALIVE.</p>
+      <button class="btn btn-primary" id="open-chat-page">Iniciar conversación</button>
+    </div>
+    <div class="contact-visual">
+      <img src="https://images.unsplash.com/photo-1525186402429-b4ff38bedec6?auto=format&fit=crop&w=1000&q=85" alt="Persona conversando con equipo de atención">
+      <div class="contact-float">
+        <span class="chat-avatar">N</span>
+        <div><b>Asistente NET ALIVE</b><small>Listo para ayudarte</small></div>
+        <span class="online-dot"></span>
+      </div>
+    </div>
+  </section>
+  <section class="contact-help">
+    <h2>¿Qué puedes hacer desde el chat?</h2>
+    <div class="help-grid">
+      <button data-modal-title="Conocer soluciones" data-modal-text="Pregunta por networking, ciberseguridad, cableado estructurado, CCTV, Data Center, servidores, telefonía y Contact Center.">Explorar servicios <b>↗</b></button>
+      <button data-modal-title="Solicitar asesoría" data-modal-text="Cuéntanos el reto de tu empresa. El asistente recopilará tu consulta y te mostrará los canales disponibles para continuar.">Solicitar asesoría <b>↗</b></button>
+      <button data-modal-title="Pedir cotización" data-modal-text="Indica qué solución te interesa, el tipo de empresa y una breve descripción de tu proyecto para orientar tu solicitud.">Iniciar cotización <b>↗</b></button>
+    </div>
+  </section>
+</main>
   <!-- PIE DE PÁGINA -->
  <footer class="footer">
   <div class="footer-glow"></div>
@@ -99,7 +119,18 @@
     </div>
   </div>
 </footer>
+
+  <!-- MODAL INFORMATIVO -->
+  <div class="modal-backdrop" id="info-modal" aria-hidden="true">
+    <div class="info-modal" role="dialog" aria-modal="true">
+      <button type="button" class="modal-close" id="modal-close" aria-label="Cerrar ventana">×</button>
+      <h2 id="modal-title"></h2>
+      <p id="modal-text"></p>
+    </div>
+  </div>
+
   <!-- Scripts -->
   <script src="js/app.js" defer></script>
+  <script src="js/contacto.js" defer></script>
 </body>
 </html>

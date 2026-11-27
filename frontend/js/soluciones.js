@@ -636,4 +636,6 @@ document.addEventListener('DOMContentLoaded', () => {
       selectSolution(nextIndex);
     });
   });
+
 });
+

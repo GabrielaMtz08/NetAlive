@@ -32,7 +32,7 @@
       <a href="index.html" data-page="inicio">Inicio</a>
       <a href="nosotros.html" data-page="nosotros">Nosotros</a>
       <a href="soluciones.html" data-page="soluciones">Soluciones</a>
-      <a href="fabrica-ia.html" data-page="fabrica">Fábrica SW / IA</a>
+      <a href="soporte.html" data-page="soporte">Soporte</a>
       <a href="sectores.html" data-page="sectores">Sectores</a>
       <a href="alianzas.html" data-page="alianzas">Alianzas</a>
       <a class="nav-contact" href="contacto.html" data-page="contacto">Contacto</a>
@@ -45,9 +45,178 @@
     </nav>
   </header>
   <main>
+    <section class="sectors-experience">
 
-    <!-- Aqui va info -->
+      <!-- HERO · RED -->
+      <section class="sectors-hero" aria-labelledby="sectors-title">
+        <div class="sectors-hero-grid"></div>
+        <div class="sectors-orb sectors-orb-1"></div>
+        <div class="sectors-orb sectors-orb-2"></div>
+        <canvas id="sectors-canvas" class="sectors-canvas" aria-hidden="true"></canvas>
 
+        <!-- Logo del núcleo (el JS lo dibuja dentro del círculo y cambia en modo noche) -->
+        <img id="hub-logo-src" src="assets/logoSin.png" data-logo-light="assets/logoSin.png" data-logo-dark="assets/LogoN.png" alt="" hidden>
+
+        <!-- Ficha flotante del sector -->
+        <div class="hero-sector-card" id="hero-sector-card" aria-hidden="true">
+          <strong class="hsc-name"></strong>
+          <span class="hsc-tag"></span>
+          <em class="hsc-go">Clic para explorar</em>
+        </div>
+
+        <div class="sectors-hero-content">
+          <span class="sectors-eyebrow">
+          </span>
+
+          <h1 id="sectors-title">
+            <span class="hero-line"><span class="hl-in">Impulsamos industrias.</span></span>
+            <span class="hero-line accent"><span class="hl-in">Conectamos futuro.</span></span>
+          </h1>
+
+          <p>
+            Cada industria tiene sus propios retos.
+            Diseñamos ecosistemas tecnológicos que
+            conectan personas, procesos e infraestructura
+            para hacer que las cosas sucedan.
+          </p>
+
+          <!-- Accesos rápidos: también sirven para teclado y móvil -->
+          <div class="hero-sector-chips" role="group" aria-label="Ir a un sector">
+            <button type="button" class="hero-sector-chip" data-go="hospitalidad">Hospitalidad</button>
+            <button type="button" class="hero-sector-chip" data-go="financiero">Financiero</button>
+            <button type="button" class="hero-sector-chip" data-go="construccion">Construcción e industria</button>
+            <button type="button" class="hero-sector-chip" data-go="gobierno">Gobierno</button>
+            <button type="button" class="hero-sector-chip" data-go="salud">Salud</button>
+            <button type="button" class="hero-sector-chip" data-go="telecom">Telecomunicaciones y medios</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPLORADOR -->
+      <section class="sector-explorer" id="explorar-sectores">
+
+        <div class="sector-intro">
+          <div>
+            <span class="section-eyebrow">NUESTRO UNIVERSO</span>
+            <h2>
+              Seis sectores.<br>
+              <span>Infinitas posibilidades.</span>
+            </h2>
+          </div>
+
+          <p>
+            Explora cómo llevamos la tecnología a distintos
+            entornos, creando soluciones a la medida de sus
+            necesidades operativas, estratégicas y de crecimiento.
+          </p>
+        </div>
+
+        <div class="sector-selector" role="tablist" aria-label="Explorar sectores">
+
+          <button class="sector-tab active" type="button" role="tab" aria-selected="true"
+                  aria-controls="sector-panel" id="tab-hospitalidad" data-sector="hospitalidad">
+            <span class="sector-tab-icon">✳</span>
+            <span class="sector-tab-name">Hospitalidad</span>
+          </button>
+
+          <button class="sector-tab" type="button" role="tab" aria-selected="false"
+                  aria-controls="sector-panel" id="tab-financiero" data-sector="financiero">
+            <span class="sector-tab-icon">◈</span>
+            <span class="sector-tab-name">Financiero</span>
+          </button>
+
+          <button class="sector-tab" type="button" role="tab" aria-selected="false"
+                  aria-controls="sector-panel" id="tab-construccion" data-sector="construccion">
+            <span class="sector-tab-icon">⌘</span>
+            <span class="sector-tab-name">Construcción e industria</span>
+          </button>
+
+          <button class="sector-tab" type="button" role="tab" aria-selected="false"
+                  aria-controls="sector-panel" id="tab-gobierno" data-sector="gobierno">
+            <span class="sector-tab-icon">⌬</span>
+            <span class="sector-tab-name">Gobierno</span>
+          </button>
+
+          <button class="sector-tab" type="button" role="tab" aria-selected="false"
+                  aria-controls="sector-panel" id="tab-salud" data-sector="salud">
+            <span class="sector-tab-icon">✚</span>
+            <span class="sector-tab-name">Salud</span>
+          </button>
+
+          <button class="sector-tab" type="button" role="tab" aria-selected="false"
+                  aria-controls="sector-panel" id="tab-telecom" data-sector="telecom">
+            <span class="sector-tab-icon">⌁</span>
+            <span class="sector-tab-name">Telecomunicaciones y medios</span>
+          </button>
+
+        </div>
+
+        <!-- PANEL DINÁMICO -->
+        <article class="sector-detail" id="sector-panel" role="tabpanel" aria-labelledby="tab-hospitalidad">
+
+          <div class="sector-detail-visual" id="sector-visual">
+            <div class="sector-visual-overlay"></div>
+
+            <div class="sector-visual-content">
+              <div class="sector-visual-symbol" id="sector-symbol">✳</div>
+              <span class="sector-visual-caption" id="sector-visual-caption">CONNECTED EXPERIENCES</span>
+            </div>
+          </div>
+
+          <div class="sector-detail-info">
+
+            <div class="sector-detail-top">
+              <span class="section-eyebrow" id="sector-kicker">SECTOR / HOSPITALIDAD</span>
+            </div>
+
+            <h3 id="sector-title">
+              Experiencias conectadas.<br>
+              Operaciones sin interrupciones.
+            </h3>
+
+            <p class="sector-description" id="sector-description">
+              Soluciones tecnológicas que conectan la experiencia
+              de los huéspedes con la operación eficiente de
+              hoteles y resorts.
+            </p>
+
+            <div class="sector-services">
+              <span class="section-eyebrow">LO QUE INTEGRAMOS</span>
+              <div class="sector-service-list" id="sector-services"></div>
+            </div>
+
+            <div class="sector-brands">
+              <span class="section-eyebrow">EXPERIENCIA Y REFERENCIAS</span>
+              <div class="sector-brand-list" id="sector-brands"></div>
+            </div>
+          </div>
+        </article>
+
+        <div class="sector-explorer-bottom">
+          <span>SELECCIONA UNA INDUSTRIA</span>
+        </div>
+
+      </section>
+
+      <!-- CIERRE -->
+      <section class="sector-closing">
+        <div class="closing-grid"></div>
+        <span class="section-eyebrow">TECNOLOGÍA CON PROPÓSITO</span>
+
+        <h2>
+          Tu industria evoluciona.<br>
+          <span>Nosotros la conectamos.</span>
+        </h2>
+
+        <p>
+          Construyamos juntos una infraestructura tecnológica
+          preparada para lo que viene.
+        </p>
+
+        <a href="contacto.html" class="sectors-cta closing-cta">Hablemos de tu proyecto</a>
+      </section>
+
+    </section>
   </main>
 
   <!-- PIE DE PÁGINA -->
@@ -92,7 +261,7 @@
 
     <!-- Barra Inferior -->
     <div class="footer-bottom">
-        <p>&copy;<span class="year">2026</span> Net Alive, S.A. de C.V.</span></p>
+        <p>&copy;<span class="year">2026</span> Net Alive, S.A. de C.V.</p>
       <div class="values">
         <span>Calidad</span> • <span>Experiencia</span> • <span>Creatividad</span> • <span>Eficiencia</span> • <span>Honestidad</span>
       </div>
@@ -101,5 +270,6 @@
 </footer>
   <!-- Scripts -->
   <script src="js/app.js" defer></script>
+  <script src="js/sectores.js" defer></script>
 </body>
 </html>
