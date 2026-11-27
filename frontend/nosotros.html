@@ -64,11 +64,69 @@
         </div>
       </div>
 
-      <!-- Círculo respirando con imagen interactiva -->
-      <div class="banner-decoration" id="banner-emblem" role="button" tabindex="0" aria-label="Red y comunidad Net Alive">
-        <span class="pulse-ring ring-1" aria-hidden="true"></span>
-        <span class="pulse-ring ring-2" aria-hidden="true"></span>
-        <img src="assets/comunidad.png" alt="Comunidad y red conectada Net Alive" class="banner-emblem-img">
+      <div class="banner-visual" id="banner-visual" role="group" aria-label="Pilares de Net Alive">
+        <div class="banner-visual__glow" aria-hidden="true"></div>
+        <canvas class="banner-visual__network" aria-hidden="true"></canvas>
+
+        <div class="banner-visual__rings" data-parallax-depth="0.18" aria-hidden="true">
+          <span class="banner-orbit banner-orbit--outer"></span>
+          <span class="banner-orbit banner-orbit--inner"></span>
+        </div>
+
+        <div class="banner-visual__core" data-parallax-depth="0.42">
+          <div class="banner-decoration" id="banner-emblem" role="button" tabindex="0" aria-label="Activar una pulsación de red Net Alive">
+            <span class="pulse-ring ring-1" aria-hidden="true"></span>
+            <span class="pulse-ring ring-2" aria-hidden="true"></span>
+            <svg class="banner-emblem-img" viewBox="0 0 240 240" aria-hidden="true">
+              <path class="emblem-hexagon" d="M120 18 199 63.5v91L120 200l-79-45.5v-91L120 18Z"></path>
+              <g class="emblem-node">
+                <circle cx="120" cy="18" r="8"></circle>
+              </g>
+              <g class="emblem-node" data-emblem-node="seguridad">
+                <circle cx="199" cy="63.5" r="8"></circle>
+              </g>
+              <g class="emblem-node" data-emblem-node="datos">
+                <circle cx="199" cy="154.5" r="8"></circle>
+              </g>
+              <g class="emblem-node">
+                <circle cx="120" cy="200" r="8"></circle>
+              </g>
+              <g class="emblem-node" data-emblem-node="nube">
+                <circle cx="41" cy="154.5" r="8"></circle>
+              </g>
+              <g class="emblem-node" data-emblem-node="infraestructura">
+                <circle cx="41" cy="63.5" r="8"></circle>
+              </g>
+              <g class="emblem-people">
+                <circle class="emblem-person-head" cx="120" cy="91" r="12"></circle>
+                <circle class="emblem-person-head" cx="82" cy="109" r="10"></circle>
+                <circle class="emblem-person-head" cx="158" cy="109" r="10"></circle>
+                <path d="M82 161v-9c0-20 16-35 38-35s38 15 38 35v9"></path>
+                <path d="M45 161v-8c0-15 12-27 28-27 8 0 15 3 20 9M195 161v-8c0-15-12-27-28-27-8 0-15 3-20 9"></path>
+                <path d="M65 161h110"></path>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <span class="banner-visual__pulse" aria-hidden="true"></span>
+
+        <button class="pillar-chip pillar-chip--infraestructura" type="button" data-pillar="infraestructura" data-parallax-depth="0.82" aria-pressed="false" aria-describedby="pillar-description-infraestructura">
+          <span>Infraestructura</span>
+          <span class="pillar-chip__tooltip" id="pillar-description-infraestructura" role="tooltip" hidden>Centros de datos y redes que sostienen operaciones confiables.</span>
+        </button>
+        <button class="pillar-chip pillar-chip--seguridad" type="button" data-pillar="seguridad" data-parallax-depth="0.72" aria-pressed="false" aria-describedby="pillar-description-seguridad">
+          <span>Seguridad</span>
+          <span class="pillar-chip__tooltip" id="pillar-description-seguridad" role="tooltip" hidden>Protección y continuidad para la información y los servicios.</span>
+        </button>
+        <button class="pillar-chip pillar-chip--nube" type="button" data-pillar="nube" data-parallax-depth="0.9" aria-pressed="false" aria-describedby="pillar-description-nube">
+          <span>Nube</span>
+          <span class="pillar-chip__tooltip" id="pillar-description-nube" role="tooltip" hidden>Servicios flexibles para crecer y operar desde cualquier lugar.</span>
+        </button>
+        <button class="pillar-chip pillar-chip--datos" type="button" data-pillar="datos" data-parallax-depth="0.78" aria-pressed="false" aria-describedby="pillar-description-datos">
+          <span>Datos</span>
+          <span class="pillar-chip__tooltip" id="pillar-description-datos" role="tooltip" hidden>Integración y analítica para respaldar mejores decisiones.</span>
+        </button>
       </div>
     </section>
 
