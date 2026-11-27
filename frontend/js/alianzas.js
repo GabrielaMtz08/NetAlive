@@ -5,11 +5,11 @@
       label: 'Cómputo y servidores',
       shortLabel: 'Cómputo',
       partners: [
-        { name: 'Dell Technologies', initials: 'DELL', credential: 'Gold Partner', scope: 'Cómputo, servidores y almacenamiento empresarial.' },
-        { name: 'Hewlett Packard Enterprise', initials: 'HPE', scope: 'Cómputo, servidores y almacenamiento empresarial.' },
-        { name: 'Lanix', initials: 'LX', scope: 'Cómputo y equipos para entornos empresariales.' },
-        { name: 'ASUS', initials: 'ASUS', scope: 'Cómputo y equipos para entornos empresariales.' },
-        { name: 'Lenovo', initials: 'LEN', scope: 'Cómputo, estaciones de trabajo y equipos empresariales.' }
+        { name: 'Dell Technologies', credential: 'Gold Partner', scope: 'Cómputo, servidores y almacenamiento empresarial.' },
+        { name: 'Hewlett Packard Enterprise', scope: 'Cómputo, servidores y almacenamiento empresarial.' },
+        { name: 'Lanix', scope: 'Cómputo y equipos para entornos empresariales.' },
+        { name: 'ASUS', scope: 'Cómputo y equipos para entornos empresariales.' },
+        { name: 'Lenovo', scope: 'Cómputo, estaciones de trabajo y equipos empresariales.' }
       ]
     },
     {
@@ -17,14 +17,14 @@
       label: 'Redes, ciberseguridad y VoIP',
       shortLabel: 'Redes y seguridad',
       partners: [
-        { name: 'Cisco', initials: 'C', credential: 'Cisco Partner', scope: 'Redes e infraestructura de comunicación empresarial.' },
-        { name: 'Cisco Meraki', initials: 'CM', scope: 'Redes y conectividad empresarial.' },
-        { name: 'Fortinet', initials: 'FT', scope: 'Ciberseguridad e infraestructura de red.' },
-        { name: 'Huawei', initials: 'HW', scope: 'Redes y conectividad empresarial.' },
-        { name: 'Ubiquiti', initials: 'UB', scope: 'Redes y conectividad inalámbrica.' },
-        { name: 'Ruckus Wireless', initials: 'RW', scope: 'Redes inalámbricas empresariales.' },
-        { name: 'Sophos', initials: 'SP', scope: 'Ciberseguridad.' },
-        { name: 'Grandstream', initials: 'GS', scope: 'Telefonía IP y comunicaciones.' }
+        { name: 'Cisco', credential: 'Cisco Partner', scope: 'Redes e infraestructura de comunicación empresarial.' },
+        { name: 'Cisco Meraki', scope: 'Redes y conectividad empresarial.' },
+        { name: 'Fortinet', scope: 'Ciberseguridad e infraestructura de red.' },
+        { name: 'Huawei', scope: 'Redes y conectividad empresarial.' },
+        { name: 'Ubiquiti', scope: 'Redes y conectividad inalámbrica.' },
+        { name: 'Ruckus Wireless', scope: 'Redes inalámbricas empresariales.' },
+        { name: 'Sophos', scope: 'Ciberseguridad.' },
+        { name: 'Grandstream', scope: 'Telefonía IP y comunicaciones.' }
       ]
     },
     {
@@ -32,12 +32,12 @@
       label: 'Virtualización, nube y respaldo',
       shortLabel: 'Nube y virtualización',
       partners: [
-        { name: 'VMware by Broadcom', initials: 'VM', scope: 'Virtualización empresarial, redes definidas por software e hiperconvergencia.' },
-        { name: 'Veeam', initials: 'VE', scope: 'Respaldo y continuidad de datos.' },
-        { name: 'Nutanix', initials: 'NX', scope: 'Infraestructura hiperconvergente y virtualización.' },
-        { name: 'Microsoft Hyper-V', initials: 'HV', scope: 'Virtualización integrada con entornos Windows Server.' },
-        { name: 'Proxmox', initials: 'PX', scope: 'Virtualización de máquinas y contenedores.' },
-        { name: 'Red Hat', initials: 'RH', scope: 'Plataformas empresariales para contenedores y nube híbrida.' }
+        { name: 'VMware by Broadcom', scope: 'Virtualización empresarial, redes definidas por software e hiperconvergencia.' },
+        { name: 'Veeam', scope: 'Respaldo y continuidad de datos.' },
+        { name: 'Nutanix', scope: 'Infraestructura hiperconvergente y virtualización.' },
+        { name: 'Microsoft Hyper-V', scope: 'Virtualización integrada con entornos Windows Server.' },
+        { name: 'Proxmox', scope: 'Virtualización de máquinas y contenedores.' },
+        { name: 'Red Hat', scope: 'Plataformas empresariales para contenedores y nube híbrida.' }
       ]
     },
     {
@@ -45,10 +45,10 @@
       label: 'Cableado estructurado',
       shortLabel: 'Cableado',
       partners: [
-        { name: 'Panduit', initials: 'PD', scope: 'Cableado estructurado e infraestructura de conectividad.' },
-        { name: 'Belden', initials: 'BD', scope: 'Cableado estructurado e infraestructura de conectividad.' },
-        { name: 'Siemon', initials: 'SM', scope: 'Cableado estructurado e infraestructura de conectividad.' },
-        { name: 'LinkedPro', initials: 'LP', scope: 'Cableado estructurado e infraestructura de conectividad.' }
+        { name: 'Panduit', scope: 'Cableado estructurado e infraestructura de conectividad.' },
+        { name: 'Belden', scope: 'Cableado estructurado e infraestructura de conectividad.' },
+        { name: 'Siemon', scope: 'Cableado estructurado e infraestructura de conectividad.' },
+        { name: 'LinkedPro', scope: 'Cableado estructurado e infraestructura de conectividad.' }
       ]
     },
     {
@@ -56,11 +56,11 @@
       label: 'Energía y respaldo',
       shortLabel: 'Energía',
       partners: [
-        { name: 'Tripp Lite', initials: 'TL', scope: 'Energía y respaldo para infraestructura tecnológica.' },
-        { name: 'CDP', initials: 'CDP', scope: 'Energía y respaldo para infraestructura tecnológica.' },
-        { name: 'APC', initials: 'APC', scope: 'Energía y respaldo para infraestructura tecnológica.' },
-        { name: 'Epcom Power Line', initials: 'EP', scope: 'Energía y respaldo para infraestructura tecnológica.' },
-        { name: 'CyberPower', initials: 'CP', scope: 'Energía y respaldo para infraestructura tecnológica.' }
+        { name: 'Tripp Lite', scope: 'Energía y respaldo para infraestructura tecnológica.' },
+        { name: 'CDP', scope: 'Energía y respaldo para infraestructura tecnológica.' },
+        { name: 'APC', scope: 'Energía y respaldo para infraestructura tecnológica.' },
+        { name: 'Epcom Power Line', scope: 'Energía y respaldo para infraestructura tecnológica.' },
+        { name: 'CyberPower', scope: 'Energía y respaldo para infraestructura tecnológica.' }
       ]
     },
     {
@@ -68,13 +68,13 @@
       label: 'Videovigilancia y control de acceso',
       shortLabel: 'Seguridad física',
       partners: [
-        { name: 'Hikvision', initials: 'HK', scope: 'Videovigilancia y control de acceso.' },
-        { name: 'Dahua Technology', initials: 'DH', scope: 'Videovigilancia y control de acceso.' },
-        { name: 'Hanwha Vision', initials: 'HV', scope: 'Videovigilancia y control de acceso.' },
-        { name: 'ZKTeco', initials: 'ZK', scope: 'Control de acceso y gestión de asistencia.' },
-        { name: 'HID', initials: 'HID', scope: 'Control de acceso e identificación.' },
-        { name: 'CAME', initials: 'CM', scope: 'Control de acceso.' },
-        { name: 'Honeywell', initials: 'HW', scope: 'Videovigilancia y control de acceso.' }
+        { name: 'Hikvision', scope: 'Videovigilancia y control de acceso.' },
+        { name: 'Dahua Technology', scope: 'Videovigilancia y control de acceso.' },
+        { name: 'Hanwha Vision', scope: 'Videovigilancia y control de acceso.' },
+        { name: 'ZKTeco', scope: 'Control de acceso y gestión de asistencia.' },
+        { name: 'HID', scope: 'Control de acceso e identificación.' },
+        { name: 'CAME', scope: 'Control de acceso.' },
+        { name: 'Honeywell', scope: 'Videovigilancia y control de acceso.' }
       ]
     },
     {
@@ -82,8 +82,8 @@
       label: 'Conectividad y comunicaciones',
       shortLabel: 'Telecom',
       partners: [
-        { name: 'Alestra', initials: 'AL', scope: 'Enlaces dedicados y redes privadas multisucursal.' },
-        { name: 'Net2phone', initials: 'N2P', scope: 'Telefonía en la nube, UCaaS y Contact Center omnicanal.' }
+        { name: 'Alestra', scope: 'Enlaces dedicados y redes privadas multisucursal.' },
+        { name: 'Net2phone', scope: 'Telefonía en la nube, UCaaS y Contact Center omnicanal.' }
       ]
     }
   ];
@@ -95,7 +95,6 @@
   const resultCount = document.querySelector('#alliance-result-count');
   const emptyState = document.querySelector('#alliance-empty');
   const clearButton = document.querySelector('#alliance-clear');
-  const whatsappLink = document.querySelector('#alliance-whatsapp');
 
   if (!filterContainer || !mapContainer || !searchInput || !resultsGrid || !resultCount || !emptyState) return;
 
@@ -147,19 +146,15 @@
   function createPartnerCard(partner, index) {
     const card = document.createElement('article');
     card.className = 'partner-card';
+    card.dataset.category = partner.group.id;
 
     const top = document.createElement('div');
     top.className = 'partner-card__top';
 
-    const mark = document.createElement('span');
-    mark.className = 'partner-card__mark';
-    mark.textContent = partner.initials;
-    mark.setAttribute('aria-hidden', 'true');
-
     const name = document.createElement('h3');
     name.className = 'partner-card__name';
     name.textContent = partner.name;
-    top.append(mark, name);
+    top.append(name);
 
     card.append(top);
 
@@ -208,31 +203,6 @@
     return card;
   }
 
-  function updateContactLinks() {
-    if (!whatsappLink) return;
-
-    const searchTerm = searchInput.value.trim();
-    const selectedGroup = groups.find(group => group.id === selectedCategory);
-    const interest = selectedGroup
-      ? selectedGroup.label
-      : searchTerm
-        ? `tecnología relacionada con ${searchTerm}`
-        : 'las alianzas tecnológicas de NET ALIVE';
-    const message = [
-      'Hola, equipo NET ALIVE:',
-      '',
-      `Me interesa conversar sobre ${interest}.`,
-      '',
-      'Nombre:',
-      'Empresa:',
-      'Correo corporativo:',
-      'Teléfono:',
-      'Solución de interés:'
-    ].join('\n');
-
-    whatsappLink.href = `https://wa.me/525596676126?text=${encodeURIComponent(message)}`;
-  }
-
   function renderPartners() {
     const query = normalize(searchInput.value.trim());
     const visiblePartners = partners.filter(partner => {
@@ -260,8 +230,6 @@
     mapContainer.querySelectorAll('[data-category]').forEach(button => {
       button.setAttribute('aria-pressed', String(button.dataset.category === selectedCategory));
     });
-
-    updateContactLinks();
   }
 
   function selectCategory(categoryId) {

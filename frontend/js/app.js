@@ -172,34 +172,3 @@ $$('.sector-tab').forEach(tab => tab.addEventListener('click', () => {
     return row;
   }));
 }));
-
-// Interactividad del emblema en el banner de Nosotros
-const banner = $('.inner-banner');
-const emblem = $('#banner-emblem');
-
-if (banner && emblem && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  banner.addEventListener('mousemove', (e) => {
-    const rect = banner.getBoundingClientRect();
-    const relX = (e.clientX - rect.left) / rect.width - 0.5;
-    const relY = (e.clientY - rect.top) / rect.height - 0.5;
-    emblem.style.transform = `perspective(700px) rotateY(${relX * 18}deg) rotateX(${-relY * 18}deg) translate(${relX * 14}px, ${relY * 14}px)`;
-  });
-
-  banner.addEventListener('mouseleave', () => {
-    emblem.style.transform = '';
-  });
-
-  const triggerPulse = () => {
-    emblem.classList.remove('is-pulsing');
-    void emblem.offsetWidth; // Reinicia la animación en clics seguidos
-    emblem.classList.add('is-pulsing');
-  };
-
-  emblem.addEventListener('click', triggerPulse);
-  emblem.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      triggerPulse();
-    }
-  });
-}
