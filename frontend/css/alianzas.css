@@ -81,6 +81,17 @@ body[data-theme="dark"] .alliances-page {
     linear-gradient(120deg, #061322 0%, #0a1c31 58%, #0a2537 100%);
 }
 
+.alliances-hero::before {
+  content: "";
+  position: absolute;
+  z-index: -3;
+  inset: 0;
+  background: url("../assets/alianzas-fondo.png") center / cover no-repeat;
+  opacity: .36;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
 .alliances-hero__grid {
   position: absolute;
   z-index: -2;
@@ -103,6 +114,7 @@ body[data-theme="dark"] .alliances-page {
   border-radius: 50%;
   background: radial-gradient(circle, rgba(0, 216, 232, .13), transparent 66%);
   filter: blur(18px);
+  animation: allianceGlowDrift 9s ease-in-out infinite alternate;
 }
 
 .alliances-hero__content {
@@ -116,6 +128,7 @@ body[data-theme="dark"] .alliances-page {
 
 .alliances-hero__copy {
   max-width: 700px;
+  animation: allianceHeroEnter .85s cubic-bezier(.16, 1, .3, 1) both;
 }
 
 .alliances-hero h1 {
@@ -226,6 +239,7 @@ body[data-theme="dark"] .alliances-page {
   display: grid;
   place-items: center;
   isolation: isolate;
+  animation: allianceVisualEnter 1s .12s cubic-bezier(.16, 1, .3, 1) both;
 }
 
 .alliances-orbit {
@@ -238,7 +252,7 @@ body[data-theme="dark"] .alliances-page {
 .alliances-orbit--outer {
   inset: 5%;
   border-style: dashed;
-  animation: allianceOrbit 36s linear infinite;
+  animation: allianceOrbit 48s linear infinite;
 }
 
 .alliances-orbit--inner {
@@ -246,6 +260,7 @@ body[data-theme="dark"] .alliances-page {
   border-color: rgba(75, 214, 224, .27);
   box-shadow: 0 0 70px rgba(0, 216, 232, .08), inset 0 0 70px rgba(0, 216, 232, .05);
   transform: rotate(38deg);
+  animation: allianceInnerOrbit 56s linear infinite reverse;
 }
 
 .alliances-network-line {
@@ -257,6 +272,7 @@ body[data-theme="dark"] .alliances-page {
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(40, 211, 222, .65), transparent);
   transform-origin: center;
+  animation: allianceLinePulse 4.8s ease-in-out infinite;
 }
 
 .alliances-network-line--one {
@@ -265,6 +281,7 @@ body[data-theme="dark"] .alliances-page {
 
 .alliances-network-line--two {
   transform: translate(-50%, -50%) rotate(-38deg);
+  animation-delay: 2.4s;
 }
 
 .alliances-network-core {
@@ -281,41 +298,33 @@ body[data-theme="dark"] .alliances-page {
   background: radial-gradient(circle at 50% 30%, #133d50, #091b2b 68%);
   box-shadow: 0 0 48px rgba(0, 216, 232, .18), inset 0 0 24px rgba(0, 216, 232, .12);
   text-align: center;
+  animation: allianceCoreFloat 6.2s ease-in-out infinite;
 }
 
-.alliances-network-core__symbol,
-.ecosystem-map__core-mark {
-  width: 42px;
-  height: 42px;
-  margin-bottom: 9px;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(88, 226, 229, .65);
-  border-radius: 14px;
-  color: #6de5e2;
-  font-family: Manrope, sans-serif;
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: -.07em;
-  transform: rotate(-8deg);
+.alliances-network-core__logo {
+  width: min(76%, 150px);
+  max-height: 82px;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 12px rgba(0, 216, 232, .16));
+  transition: transform .25s ease, filter .25s ease;
 }
 
-.alliances-network-core strong {
-  font-family: Manrope, sans-serif;
-  font-size: 15px;
-  letter-spacing: .11em;
+.alliances-network-orbit {
+  position: absolute;
+  z-index: 2;
+  inset: 5%;
+  border-radius: 50%;
+  animation: allianceNetworkOrbit 52s linear infinite;
 }
 
-.alliances-network-core small {
-  margin-top: 6px;
-  color: #94b5c3;
-  font-size: 9px;
-  letter-spacing: .04em;
+.alliances-network-core:hover .alliances-network-core__logo,
+.ecosystem-map__core:hover .ecosystem-map__core-logo {
+  transform: scale(1.06);
+  filter: drop-shadow(0 7px 16px rgba(0, 216, 232, .3));
 }
 
 .alliances-network-node {
   position: absolute;
-  z-index: 2;
   width: 54px;
   height: 54px;
   display: grid;
@@ -328,24 +337,77 @@ body[data-theme="dark"] .alliances-page {
   font-size: 9px;
   font-weight: 800;
   letter-spacing: .06em;
+  animation: allianceNodeFloat 4.8s ease-in-out infinite;
 }
 
-.alliances-network-node--one { top: 10%; left: 23%; }
-.alliances-network-node--two { top: 22%; right: 7%; }
-.alliances-network-node--three { right: 13%; bottom: 17%; }
-.alliances-network-node--four { left: 11%; bottom: 24%; }
-
-.alliances-network-caption {
-  position: absolute;
-  bottom: 1%;
-  color: #7295a7;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: .2em;
+.alliances-network-node > span {
+  display: block;
+  animation: allianceNetworkCounterOrbit 52s linear infinite;
 }
+
+.alliances-network-node--one { top: 0; left: 50%; margin: -27px 0 0 -27px; animation-delay: -.8s; }
+.alliances-network-node--two { top: 50%; left: 100%; margin: -27px 0 0 -27px; animation-delay: -2s; }
+.alliances-network-node--three { top: 100%; left: 50%; margin: -27px 0 0 -27px; animation-delay: -3.2s; }
+.alliances-network-node--four { top: 50%; left: 0; margin: -27px 0 0 -27px; animation-delay: -4.1s; }
+
 
 @keyframes allianceOrbit {
-  to { transform: rotate(336deg); }
+  0%, 100% { transform: rotate(-24deg) scale(.96); }
+  25% { transform: rotate(66deg) scale(1.04); }
+  50% { transform: rotate(156deg) scale(.96); }
+  75% { transform: rotate(246deg) scale(1.04); }
+}
+
+@keyframes allianceInnerOrbit {
+  0% { transform: rotate(38deg) scale(.96); }
+  25% { transform: rotate(128deg) scale(1.05); }
+  50% { transform: rotate(218deg) scale(.96); }
+  75% { transform: rotate(308deg) scale(1.05); }
+  100% { transform: rotate(398deg) scale(.96); }
+}
+
+@keyframes allianceGlowDrift {
+  from { opacity: .58; transform: translate3d(-3%, 2%, 0) scale(.92); }
+  to { opacity: 1; transform: translate3d(4%, -3%, 0) scale(1.08); }
+}
+
+@keyframes allianceHeroEnter {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes allianceVisualEnter {
+  from { opacity: 0; transform: translateY(14px) scale(.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes allianceLinePulse {
+  0%, 100% { opacity: .42; }
+  50% { opacity: 1; }
+}
+
+@keyframes allianceCoreFloat {
+  0%, 100% {
+    transform: translateY(0) scale(.97);
+    box-shadow: 0 0 40px rgba(0, 216, 232, .14), inset 0 0 24px rgba(0, 216, 232, .1);
+  }
+  50% {
+    transform: translateY(-7px) scale(1.04);
+    box-shadow: 0 0 62px rgba(0, 216, 232, .27), inset 0 0 30px rgba(0, 216, 232, .16);
+  }
+}
+
+@keyframes allianceNodeFloat {
+  0%, 100% { transform: translateY(0) scale(.94); }
+  50% { transform: translateY(-8px) scale(1.1); }
+}
+
+@keyframes allianceNetworkOrbit {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes allianceNetworkCounterOrbit {
+  to { transform: rotate(-360deg); }
 }
 
 .alliances-intro,
@@ -512,12 +574,12 @@ body[data-theme="dark"] .alliances-section-heading h2 {
   letter-spacing: .08em;
 }
 
-.ecosystem-map__core-mark {
-  width: 32px;
-  height: 32px;
-  margin-bottom: 6px;
-  border-radius: 10px;
-  font-size: 11px;
+.ecosystem-map__core-logo {
+  width: min(82%, 100px);
+  max-height: 52px;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 8px rgba(8, 184, 183, .16));
+  transition: transform .25s ease, filter .25s ease;
 }
 
 .ecosystem-map__core small {
@@ -709,7 +771,7 @@ body[data-theme="dark"] .alliances-section-heading h2 {
 .partner-card {
   min-width: 0;
   padding: 17px;
-  border: 1px solid var(--alliance-border);
+  border: 1px solid rgba(var(--alliance-category-rgb), .22);
   border-radius: 16px;
   background: var(--alliance-panel);
   box-shadow: 0 8px 22px rgba(15, 55, 70, .035);
@@ -719,7 +781,7 @@ body[data-theme="dark"] .alliances-section-heading h2 {
 
 .partner-card:hover {
   transform: translateY(-3px);
-  border-color: rgba(8, 184, 183, .42);
+  border-color: rgba(var(--alliance-category-rgb), .58);
   box-shadow: var(--alliance-shadow);
 }
 
@@ -729,38 +791,21 @@ body[data-theme="dark"] .alliances-section-heading h2 {
 }
 
 .partner-card__top {
-  min-height: 54px;
+  min-height: 72px;
   margin-bottom: 12px;
   display: flex;
   align-items: center;
-  gap: 12px;
-}
-
-.partner-card__mark {
-  flex: 0 0 46px;
-  width: 46px;
-  height: 46px;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(8, 184, 183, .24);
-  border-radius: 14px;
-  color: var(--alliance-accent);
-  background: rgba(8, 184, 183, .08);
-  font-family: Manrope, sans-serif;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: -.04em;
 }
 
 .partner-card__name {
   min-width: 0;
   margin: 0;
   overflow-wrap: anywhere;
-  color: var(--alliance-text);
+  color: rgb(var(--alliance-category-rgb));
   font-family: Manrope, sans-serif;
-  font-size: 14px;
+  font-size: clamp(18px, 2vw, 23px);
   font-weight: 800;
-  line-height: 1.35;
+  line-height: 1.12;
 }
 
 .partner-card__credential {
@@ -768,10 +813,10 @@ body[data-theme="dark"] .alliances-section-heading h2 {
   max-width: 100%;
   margin: 0 0 10px;
   padding: 5px 8px;
-  border: 1px solid rgba(8, 184, 183, .25);
+  border: 1px solid rgba(var(--alliance-category-rgb), .35);
   border-radius: 20px;
-  color: var(--alliance-accent);
-  background: rgba(8, 184, 183, .07);
+  color: rgb(var(--alliance-category-rgb));
+  background: rgba(var(--alliance-category-rgb), .09);
   font-size: 9px;
   font-weight: 800;
 }
@@ -779,7 +824,12 @@ body[data-theme="dark"] .alliances-section-heading h2 {
 .partner-card__category {
   min-height: 28px;
   margin: 0 0 10px;
-  color: var(--alliance-muted);
+  width: fit-content;
+  padding: 5px 9px;
+  border: 1px solid rgba(var(--alliance-category-rgb), .32);
+  border-radius: 20px;
+  color: rgb(var(--alliance-category-rgb));
+  background: rgba(var(--alliance-category-rgb), .09);
   font-size: 10px;
   line-height: 1.45;
 }
@@ -896,23 +946,11 @@ body[data-theme="dark"] .alliances-section-heading h2 {
 .alliances-contact__actions {
   min-width: 230px;
   flex-direction: column;
-  align-items: stretch;
+  align-items: flex-end;
 }
 
-.alliances-button--whatsapp {
-  border-color: rgba(210, 237, 245, .22);
-  color: #e7fbfc;
-  background: rgba(255, 255, 255, .055);
-}
-
-.alliances-button--whatsapp:hover {
-  background: rgba(255, 255, 255, .12);
-}
-
-.alliances-contact__actions > span {
-  color: #8faab9;
-  text-align: center;
-  font-size: 10px;
+.alliances-contact__actions .alliances-button--primary {
+  border-color: rgba(4, 32, 42, .42);
 }
 
 @media (max-width: 1050px) {
@@ -1014,6 +1052,7 @@ body[data-theme="dark"] .alliances-section-heading h2 {
   .alliances-contact__actions {
     width: 100%;
     min-width: 0;
+    align-items: flex-start;
   }
 }
 
@@ -1036,9 +1075,14 @@ body[data-theme="dark"] .alliances-section-heading h2 {
     margin-left: -12px;
   }
 
+  .alliances-network-orbit {
+    inset: 11%;
+  }
+
   .alliances-network-node {
     width: 46px;
     height: 46px;
+    margin: -23px 0 0 -23px;
     font-size: 8px;
   }
 
@@ -1103,6 +1147,10 @@ body[data-theme="light"] .alliances-hero {
     radial-gradient(ellipse at 76% 45%, rgba(8, 184, 183, .2), transparent 32%),
     radial-gradient(ellipse at 100% 0%, rgba(106, 157, 202, .13), transparent 34%),
     linear-gradient(118deg, #f8fcff 0%, #eff7fa 49%, #e5f4f2 100%);
+}
+
+body[data-theme="light"] .alliances-hero::before {
+  opacity: .2;
 }
 
 body[data-theme="light"] .alliances-hero__grid {
@@ -1175,16 +1223,6 @@ body[data-theme="light"] .alliances-network-core {
   box-shadow: 0 24px 70px rgba(21, 76, 99, .15), inset 0 0 28px rgba(8, 184, 183, .13);
 }
 
-body[data-theme="light"] .alliances-network-core__symbol {
-  border-color: rgba(8, 141, 146, .42);
-  color: #078d92;
-  background: rgba(255, 255, 255, .55);
-}
-
-body[data-theme="light"] .alliances-network-core small {
-  color: #628093;
-}
-
 body[data-theme="light"] .alliances-network-node {
   border-color: rgba(8, 141, 146, .35);
   color: #087c86;
@@ -1241,26 +1279,24 @@ body[data-theme="light"] .alliance-filter {
   background: rgba(255, 255, 255, .84);
 }
 
+body[data-theme="light"] .alliance-filter[aria-pressed="true"] {
+  border-color: rgba(7, 141, 146, .38);
+  color: #07545b;
+  background: linear-gradient(110deg, #c2eee9, #d8f0f3);
+  box-shadow: 0 5px 16px rgba(8, 141, 146, .14);
+}
+
 body[data-theme="light"] .partner-card {
-  border-color: rgba(27, 76, 100, .12);
   background: linear-gradient(145deg, #ffffff 0%, #ffffff 70%, #f1f8fa 100%);
   box-shadow: 0 10px 28px rgba(32, 79, 100, .065);
 }
 
+body[data-theme="light"] .partner-card[data-category] {
+  border-color: rgba(var(--alliance-category-rgb), .22);
+}
+
 body[data-theme="light"] .partner-card:hover {
   box-shadow: 0 18px 38px rgba(28, 101, 116, .13);
-}
-
-body[data-theme="light"] .partner-card__mark {
-  border-color: rgba(8, 141, 146, .2);
-  color: #07858c;
-  background: linear-gradient(145deg, #e2f8f5, #eef5fc);
-}
-
-body[data-theme="light"] .partner-card__credential {
-  border-color: rgba(8, 141, 146, .22);
-  color: #087f86;
-  background: linear-gradient(110deg, #e8f9f5, #edf6fb);
 }
 
 body[data-theme="light"] .alliances-contact {
@@ -1284,19 +1320,113 @@ body[data-theme="light"] .alliances-contact__copy > p:not(.alliances-eyebrow) {
   color: #526d82;
 }
 
-body[data-theme="light"] .alliances-contact__copy small,
-body[data-theme="light"] .alliances-contact__actions > span {
+body[data-theme="light"] .alliances-contact__copy small {
   color: #60798b;
 }
 
-body[data-theme="light"] .alliances-button--whatsapp {
-  border-color: rgba(16, 133, 95, .22);
-  color: #126746;
-  background: linear-gradient(110deg, #dcf7e8, #e4f6f2);
-  box-shadow: 0 10px 24px rgba(29, 132, 98, .11);
+.alliance-filter[data-category="all"] { --alliance-category-rgb: 0, 105, 116; }
+.alliance-filter[data-category="compute"],
+.alliance-map-button[data-category="compute"],
+.partner-card[data-category="compute"] { --alliance-category-rgb: 0, 87, 217; }
+.alliance-filter[data-category="networks"],
+.alliance-map-button[data-category="networks"],
+.partner-card[data-category="networks"] { --alliance-category-rgb: 0, 126, 158; }
+.alliance-filter[data-category="virtualization"],
+.alliance-map-button[data-category="virtualization"],
+.partner-card[data-category="virtualization"] { --alliance-category-rgb: 42, 48, 143; }
+.alliance-filter[data-category="cabling"],
+.alliance-map-button[data-category="cabling"],
+.partner-card[data-category="cabling"] { --alliance-category-rgb: 198, 83, 0; }
+.alliance-filter[data-category="power"],
+.alliance-map-button[data-category="power"],
+.partner-card[data-category="power"] { --alliance-category-rgb: 18, 123, 67; }
+.alliance-filter[data-category="physical-security"],
+.alliance-map-button[data-category="physical-security"],
+.partner-card[data-category="physical-security"] { --alliance-category-rgb: 191, 38, 51; }
+.alliance-filter[data-category="telecom"],
+.alliance-map-button[data-category="telecom"],
+.partner-card[data-category="telecom"] { --alliance-category-rgb: 106, 49, 173; }
+
+body[data-theme="dark"] .alliance-filter[data-category="all"] { --alliance-category-rgb: 54, 208, 218; }
+body[data-theme="dark"] .alliance-filter[data-category="compute"],
+body[data-theme="dark"] .alliance-map-button[data-category="compute"],
+body[data-theme="dark"] .partner-card[data-category="compute"] { --alliance-category-rgb: 98, 164, 255; }
+body[data-theme="dark"] .alliance-filter[data-category="networks"],
+body[data-theme="dark"] .alliance-map-button[data-category="networks"],
+body[data-theme="dark"] .partner-card[data-category="networks"] { --alliance-category-rgb: 40, 211, 227; }
+body[data-theme="dark"] .alliance-filter[data-category="virtualization"],
+body[data-theme="dark"] .alliance-map-button[data-category="virtualization"],
+body[data-theme="dark"] .partner-card[data-category="virtualization"] { --alliance-category-rgb: 153, 166, 255; }
+body[data-theme="dark"] .alliance-filter[data-category="cabling"],
+body[data-theme="dark"] .alliance-map-button[data-category="cabling"],
+body[data-theme="dark"] .partner-card[data-category="cabling"] { --alliance-category-rgb: 255, 158, 82; }
+body[data-theme="dark"] .alliance-filter[data-category="power"],
+body[data-theme="dark"] .alliance-map-button[data-category="power"],
+body[data-theme="dark"] .partner-card[data-category="power"] { --alliance-category-rgb: 68, 210, 135; }
+body[data-theme="dark"] .alliance-filter[data-category="physical-security"],
+body[data-theme="dark"] .alliance-map-button[data-category="physical-security"],
+body[data-theme="dark"] .partner-card[data-category="physical-security"] { --alliance-category-rgb: 255, 105, 117; }
+body[data-theme="dark"] .alliance-filter[data-category="telecom"],
+body[data-theme="dark"] .alliance-map-button[data-category="telecom"],
+body[data-theme="dark"] .partner-card[data-category="telecom"] { --alliance-category-rgb: 184, 142, 255; }
+
+.alliance-filter[data-category] {
+  border-color: rgba(var(--alliance-category-rgb), .48);
+  color: rgb(var(--alliance-category-rgb));
+  background: rgba(var(--alliance-category-rgb), .08);
 }
 
-body[data-theme="light"] .alliances-button--whatsapp:hover {
-  background: linear-gradient(110deg, #d0f2df, #d9f1ed);
-  box-shadow: 0 14px 30px rgba(29, 132, 98, .16);
+.alliance-map-button[data-category] {
+  border-color: rgba(var(--alliance-category-rgb), .34);
+  color: rgb(var(--alliance-category-rgb));
+  background: rgba(var(--alliance-category-rgb), .06);
+}
+
+.alliance-map-button__number {
+  color: rgb(var(--alliance-category-rgb));
+}
+
+body[data-theme="light"] .alliance-filter[data-category],
+body[data-theme="light"] .alliance-map-button[data-category] {
+  border-color: rgba(var(--alliance-category-rgb), .48);
+  color: rgb(var(--alliance-category-rgb));
+  background: rgba(var(--alliance-category-rgb), .08);
+}
+
+body[data-theme="light"] .alliance-filter[data-category]:hover {
+  background: rgba(var(--alliance-category-rgb), .16);
+}
+
+body[data-theme="light"] .alliance-filter[data-category][aria-pressed="true"] {
+  border-color: rgb(var(--alliance-category-rgb));
+  color: #fff;
+  background: rgb(var(--alliance-category-rgb));
+  box-shadow: 0 5px 16px rgba(var(--alliance-category-rgb), .28);
+}
+
+body[data-theme="light"] .alliance-map-button[data-category][aria-pressed="true"] {
+  border-color: rgb(var(--alliance-category-rgb));
+  color: rgb(var(--alliance-category-rgb));
+  background: rgba(var(--alliance-category-rgb), .14);
+  box-shadow: 0 6px 18px rgba(var(--alliance-category-rgb), .16);
+}
+
+body[data-theme="dark"] .alliance-filter[data-category],
+body[data-theme="dark"] .alliance-map-button[data-category] {
+  border-color: rgba(var(--alliance-category-rgb), .62);
+  color: rgb(var(--alliance-category-rgb));
+  background: rgba(var(--alliance-category-rgb), .1);
+}
+
+body[data-theme="dark"] .alliance-filter[data-category]:hover,
+body[data-theme="dark"] .alliance-map-button[data-category]:hover {
+  background: rgba(var(--alliance-category-rgb), .2);
+}
+
+body[data-theme="dark"] .alliance-filter[data-category][aria-pressed="true"],
+body[data-theme="dark"] .alliance-map-button[data-category][aria-pressed="true"] {
+  border-color: rgb(var(--alliance-category-rgb));
+  color: rgb(var(--alliance-category-rgb));
+  background: rgba(var(--alliance-category-rgb), .22);
+  box-shadow: 0 5px 18px rgba(var(--alliance-category-rgb), .14);
 }
